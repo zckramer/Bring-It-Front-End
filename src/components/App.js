@@ -1,3 +1,3 @@
 const users = require("./GetUsers");
 
-return users();
+module.exports = users;
