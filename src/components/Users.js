@@ -1,0 +1,15 @@
+const Deact = require('../libs/Deact')
+const Http = require('../utils/Http')
+const UserCard = require('./UserCard')
+
+module.exports = {
+    async renderUsers() {
+        const response = await Http.getRequest(`http://localhost:3000/users`)
+             
+             const userArray = response.users.map(user => {
+                 console.log(user.name)
+                 return Deact.create("div", {class:"user-card"}, UserCard(user))
+             })
+             return Deact.create('div', {}, userArray)
+    }
+}

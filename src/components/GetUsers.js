@@ -1,22 +1,26 @@
-Deact = require("../libs/Deact");
-Http = require("../utils/Http");
+// Deact = require("../libs/Deact");
+// getRequest = require("../utils/Http");
+// UserCard = require('./UserCard')
 
-async function getUsers(){
-    const userReturned =  Http.getRequest("http://localhost:3000/users", function(response){
+// async function getUsers(){
+//     const response = await getRequest(`http://localhost:3000/users`, function ({ users }) {
+//         console.log(users)
+//         users.forEach(user => {
+//             Deact.create("section", {}, UserCard(user.name));
+//         });
 
-        const users = response.users;
+//     })
+    
+// }
+//   function renderCohorts() {
+    // Http.getRequest("http://localhost:3000/students", function({ students }) {
+    //   students.forEach(student => {
+    //     Deact.render(
+    //       StudentCard(student),
+    //       document.querySelector(".student-cards")
+    //     );
+    //   });
+    // });
 
-        users.forEach(function(user){
-        console.log("what the fuck is wrong with " + user.name);
 
-
-        })
-        console.log("first print " + users)
-        return users;
-    }) 
-
-    console.log("second print: " + userReturned)
-
-};
-
-module.exports = getUsers();
+// module.exports = getUsers();
