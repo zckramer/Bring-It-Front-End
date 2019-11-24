@@ -4,7 +4,9 @@ const UserCard = require('../components/UserCard')
 const Users = require('../components/Users')
 // Users = require("./GetUsers");
 
- async function App () {
+
+
+async function App () {
     return Deact.create("div", {class:"users-area"}, await Users.renderUsers())    
 
 }

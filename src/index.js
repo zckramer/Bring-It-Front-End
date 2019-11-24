@@ -1,4 +1,4 @@
-const Deact = require("./libs/deact");
+const Deact = require("./libs/Deact");
 const App = require("./components/App");
 const users = require("./components/GetUsers");
 
