@@ -8,9 +8,9 @@ const HomePage = require('../components/HomePage')
 async function App (isLoggedIn) {
 
         // DEV -- EDITTING HOME PAGE
-        return Deact.create("div", {class:"users-area"}, await HomePage())    
+        return Deact.render( await HomePage(), document.querySelector(".home-page-container"))    
 
-        // USER LOGIN
+        // USER LOGIN    
         // return Deact.create("div", {class:"users-area"}, await Users.renderUsers())    
     }
 
