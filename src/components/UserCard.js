@@ -3,12 +3,9 @@ const App = require('../components/App')
 const renderApp = require('../index')
 const HomePage = require('./HomePage')
 
-
 async function handleClickEvent (event) {
-  
+
   // document.querySelector('.app')
-  const userId = event.target.attributes.value;
-  const userName = event.target
   console.log(event.target.attributes.value);
   console.log(event.target.attributes.name);
 
