@@ -14,7 +14,7 @@
   "devDependencies": {},
   "scripts": {
     "start": "webpack-dev-server --mode development --content-base docs/ --open --hot",
-    "test": "jest"
+    "test": "jest --color --watchAll"
   },
   "repository": {
     "type": "git",
