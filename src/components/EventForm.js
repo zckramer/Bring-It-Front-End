@@ -1,7 +1,7 @@
 const Deact = require('../libs/Deact')
 const Users = require('../components/Users')
 const Http = require('../utils/Http')
-
+const Items = require('./ItemCard')
 
 
 async function RenderEventForm () {
@@ -19,15 +19,15 @@ async function RenderEventForm () {
                 Deact.create("div", {class:"input-items"}, [
                     // checkboxes of items to bring
                     "checkboxes of items to bring",
-                    
-                    Deact.create("span", {class:"item-label"}, ["La Croix", Deact.create("input", {type:"checkbox", class:"item-checkbox", value: "5de3f5284a747d08689a7538"}, "")]),
-                    Deact.create("span", {class:"item-label"}, ["AA Batteries", Deact.create("input", {type:"checkbox", class:"item-checkbox", value: "5de3f5984a747d08689a753a"}, "")]),
-                    Deact.create("span", {class:"item-label"}, ["Disinfecting Wipes", Deact.create("input", {type:"checkbox", class:"item-checkbox", value: "5de3f5eb4a747d08689a753b"}, "")]),
-                    Deact.create("span", {class:"item-label"}, ["All Purpose Spray Adhesive", Deact.create("input", {type:"checkbox", class:"item-checkbox", value: "5de3f61d4a747d08689a753c"}, "")]),
-                    Deact.create("span", {class:"item-label"}, ["Toilet Paper", Deact.create("input", {type:"checkbox", class:"item-checkbox", value: "5de3f6954a747d08689a753d"}, "")]),
-                    Deact.create("span", {class:"item-label"}, ["Folding Chairs, Metal", Deact.create("input", {type:"checkbox", class:"item-checkbox", value: "5de3f6e64a747d08689a753e"}, "")]),
-                    Deact.create("span", {class:"item-label"}, ["Paper Table Cloths 8' x 8'", Deact.create("input", {type:"checkbox", class:"item-checkbox", value: "5de3f7174a747d08689a753f"}, "")]),
-                    Deact.create("span", {class:"item-label"}, ["Peanuts, Roasted, Salted", Deact.create("input", {type:"checkbox", class:"item-checkbox", value: "5de3f73c4a747d08689a7540"}, "")])
+                    Deact.create("div", {class:"input-items__list"}, await Items.renderItemsCheckbox())
+                    // Deact.create("span", {class:"item-label"}, ["La Croix", Deact.create("input", {type:"checkbox", class:"item-checkbox", value: "5de3f5284a747d08689a7538"}, "")]),
+                    // Deact.create("span", {class:"item-label"}, ["AA Batteries", Deact.create("input", {type:"checkbox", class:"item-checkbox", value: "5de3f5984a747d08689a753a"}, "")]),
+                    // Deact.create("span", {class:"item-label"}, ["Disinfecting Wipes", Deact.create("input", {type:"checkbox", class:"item-checkbox", value: "5de3f5eb4a747d08689a753b"}, "")]),
+                    // Deact.create("span", {class:"item-label"}, ["All Purpose Spray Adhesive", Deact.create("input", {type:"checkbox", class:"item-checkbox", value: "5de3f61d4a747d08689a753c"}, "")]),
+                    // Deact.create("span", {class:"item-label"}, ["Toilet Paper", Deact.create("input", {type:"checkbox", class:"item-checkbox", value: "5de3f6954a747d08689a753d"}, "")]),
+                    // Deact.create("span", {class:"item-label"}, ["Folding Chairs, Metal", Deact.create("input", {type:"checkbox", class:"item-checkbox", value: "5de3f6e64a747d08689a753e"}, "")]),
+                    // Deact.create("span", {class:"item-label"}, ["Paper Table Cloths 8' x 8'", Deact.create("input", {type:"checkbox", class:"item-checkbox", value: "5de3f7174a747d08689a753f"}, "")]),
+                    // Deact.create("span", {class:"item-label"}, ["Peanuts, Roasted, Salted", Deact.create("input", {type:"checkbox", class:"item-checkbox", value: "5de3f73c4a747d08689a7540"}, "")])
                 ]),
 
                 Deact.create ("button", {class:"event-submit"}, "Submit")
