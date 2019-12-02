@@ -18,10 +18,14 @@ module.exports = {
     async renderFriendsCheckbox() {
 
         const response = await Http.getRequest(`http://localhost:3000/users`)
-             
+        
+        function toggleChecked(e) {
+            const element = e.target;
+            element.classList.toggle("checked")
+        }
         const userArray = response.users.map(user => {
-            return Deact.create("div", {class:"user-card"}, [
-                Deact.create("input", { type: "checkbox", class:"user-checkbox", name:"guestList", value:`${user._id}`}, ""),
+            return Deact.create("label", {for: `${user._id}`, onclick: toggleChecked, class:"user-card"}, [
+                Deact.create("input", { type: "checkbox", class:"user-checkbox", id:`${user._id}`, value:`${user._id}`}, ""),
                 Deact.create("span", {class:"user-name"}, `${user.name}`),
                 Deact.create(
                     "img",

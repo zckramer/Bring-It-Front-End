@@ -11,8 +11,13 @@ async function RenderEventForm () {
     localStorage.setItem("user", "5ddadb0a374676197cb2102a")
         console.log(`Logged in as ${localStorage.getItem("user")}`)
     
+    function resetCheckboxes() {
+        const checkedFriends  = document.querySelectorAll(".user-card.checked")
+        checkedFriends.forEach(friend => {
+            friend.classList.remove("checked")
+        })
 
-
+    }
     function getCheckedUserValues() {
         const usersNode = document.querySelectorAll(".user-checkbox:checked");
         const usersArray = [...usersNode];
@@ -81,14 +86,17 @@ async function RenderEventForm () {
                     Deact.create("textarea", {class:"input-desc", placeholder:"Description", name:"description", required:"required"}, ""),
 
                 ]),
+                Deact.create("h3", {}, "Select your friends to invite:"),
                 Deact.create("section", {class:"input-friends"}, await Users.renderFriendsCheckbox()),
                 Deact.create("div", {class:"input-items"}, [
                     "checkboxes of items to bring",
                     Deact.create("div", {class:"input-items__list"}, await Items.renderItemsCheckbox())
                 ]),
-
-                Deact.create ("button", {type: "submit", class:"event-submit"}, "SUBMIT!"),
-                Deact.create ("button", {type: "reset", class: "event-reset"}, "Reset"),
+                Deact.create("section", {class:"input-buttons-container"}, [
+                    Deact.create ("button", {type: "submit", class:"event-submit"}, "SUBMIT!"),
+                    Deact.create ("button", {type: "reset", onclick: resetCheckboxes, class: "event-reset"}, "Clear"),
+                ])
+                
             ])
         
     ])
