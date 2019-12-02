@@ -4,7 +4,7 @@ const UserCard = require('./UserCard')
 
 module.exports = {
     
-    async renderUsers() {
+    async renderUsers() { // test is going to call getRequest
         
         const response = await Http.getRequest(`http://localhost:3000/users`)
              
@@ -13,6 +13,29 @@ module.exports = {
                  return Deact.create("div", {class:"user-card", id:`${user._id}`}, UserCard(user))
              })
              return Deact.create('div', {}, userArray)
+    },
+    
+    async renderFriendsCheckbox() {
+
+        const response = await Http.getRequest(`http://localhost:3000/users`)
+        
+        function toggleChecked(e) {
+            const element = e.target;
+            element.classList.toggle("checked")
+        }
+        const userArray = response.users.map(user => {
+            return Deact.create("label", {for: `${user._id}`, onclick: toggleChecked, class:"user-card"}, [
+                Deact.create("input", { type: "checkbox", class:"user-checkbox", id:`${user._id}`, value:`${user._id}`}, ""),
+                Deact.create("span", {class:"user-name"}, `${user.name}`),
+                Deact.create(
+                    "img",
+                    { class: `user-icon`, name: user.name, src: user.image, value: user._id },
+                    ""
+                  ) ]
+                    
+                ) 
+            })
+                
+        return userArray
     }
 }
-

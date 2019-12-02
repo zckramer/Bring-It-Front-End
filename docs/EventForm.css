@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Chewy&display=swap');
+
+.event-form__container{
+    
+    justify-content: center;
+    display: flex;
+    width: 60%;
+    height: 95%;
+    margin: 1rem auto;
+    padding: 1rem;
+    box-shadow: 5px 5px 10px gray;
+    border: 2px solid darkgray;
+    border-radius: 15px;
+    background-color: rgb(224, 224, 219);
+    background-image: url("../Images/subtle_white_mini_waves.png");
+    text-align: center;
+    font-family: Lato, 'Sans Serif';
+    
+}
+.form-header {
+    font-size: 2.2rem;
+    border-bottom: 2px solid gray;
+    letter-spacing: .2rem;
+    padding: .5rem;
+    margin: 0 0 .8rem 0;
+    color: rgb(255, 255, 255);
+    background-color: rgb(56, 109, 255);
+}
+.inputs-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.inputs-container > input, .inputs-container > textarea {
+    border: 1px inset darkgray;
+    border-radius: 5px;
+    margin: .2rem;
+    font-family: Lato, sans-serif;
+    padding: 0 .2rem;
+}
+.input-name{
+    width: 80%;
+    
+}
+.input-desc{
+    width: 100%;
+    height: 3rem;
+    resize: none;
+}
+
+.input-friends{
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    flex-flow: row wrap;
+    height: 250px;
+    width: 100%;
+    overflow-y: scroll;
+    margin: .2rem 0;
+    padding: .1rem;
+    background-color: rgb(252, 218, 218);
+    border: 2px inset darkgray;
+
+  
+}
+.user-checkbox {
+    width: 1rem;
+    height: 1rem;
+}
+.user-icon { 
+    grid-area: icon;
+    pointer-events: none;
+    margin: auto;
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    border: 1px darkblue solid;
+
+}
+
+.user-name{
+    grid-area: name;
+    pointer-events: none;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: bold;
+    
+}
+.user-checkbox {
+    cursor: pointer;
+    pointer-events: none;
+    grid-area: box;
+    margin: auto;
+}
+.user-card {
+    display: grid;
+    grid-template-areas: 'box name icon';
+    cursor: pointer;
+    background-color: rgb(154, 197, 253);
+    border: 1px darkblue solid;
+    border-radius: 5px;
+    padding: .1rem;
+    width: 12rem;
+    height: 2.8rem;
+    text-align: center;
+    margin: .1rem 
+}
+.user-card:hover {
+    background-image: linear-gradient(rgb(154, 197, 253),rgb(154, 197, 253),rgb(89, 158, 248));
+    border: 1px rgb(255, 255, 255) solid;
+}
+
+.user-card.checked, .user-card.checked:hover {
+    background-color: indigo;
+    background-image: none;
+    color: rgb(227, 246, 255);
+    border-color: rgb(187, 143, 0);
+}
+.user-card.checked:hover {
+    color: rgb(117, 116, 116);
+}
+
+.new-category-icon {
+    cursor: pointer;
+    
+    height: 1.5rem;
+    width: 1.5rem;
+    text-align: center;
+    background-image: radial-gradient(rgb(220, 220, 255), rgb(170, 170, 255), blue);
+    border-radius: 100%;
+    border: 2px unset blue;
+    color: rgb(8, 0, 0);
+    font-size: 1.8rem;
+    padding: .1rem;
+    line-height: 1.4rem;
+    margin: 1.5rem 1.5rem 1.5rem 0;
+}
+.new-category-icon:hover {
+    border: 1px inset blue;
+}
+.input-buttons-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.input-buttons-container > button{
+    cursor: pointer;
+    border: 2px solid black;
+    border-radius: 15px;
+    height: 60px;
+    width: 120px;
+    margin: 2rem auto;
+    background-color: rgb(56, 109, 255);
+    color: whitesmoke;
+}
+.input-buttons-container > button:hover{
+    background-color: rgb(187, 0, 0);
+    color: white;
+}
+

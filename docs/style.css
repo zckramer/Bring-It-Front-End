@@ -1,3 +1,5 @@
+@import "EventForm.css";
+
 body {
 	height: 100vh;
 }
@@ -8,9 +10,9 @@ body {
 
 } 
 
-header {
+/* header {
 	width: 100%;
-}
+} */
 
 .user-card__avatar{
     height: 100%;
@@ -52,9 +54,9 @@ header {
 	grid-area: nav;
 	height: 100%;
 	width:100%;
-	/* border: 1px solid black; */
-	/* padding: 1px; */
 	background-color: #ffa08c;
+	display:flex;
+	flex-direction:column;
 }
 
 .events__hosting {
@@ -79,6 +81,12 @@ header {
 	width: 100%;
 	height: 100%;
 	grid-area: main;
+	
+}
+.main-container.home {
+	width: 100%;
+	height: 100%;
+	grid-area: main;
 	display: grid;
 	/* margin: 0 auto; */
     grid-template-rows: 50% 50%;
@@ -88,11 +96,11 @@ header {
     "attendees attendees assignments assignments assignments";
 }
 
-.event-form__container{
+/* .event-form__container{
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
+} */
 
 .my-event {
 	grid-area: my-event;
@@ -159,18 +167,25 @@ header {
 	justify-content: center; */
 	background-color: #8cffa0;
 }
-.invitation-card,.host-card{
-    width: 100%;
-    display: flex;
-    flex-direction:column;
-    border: solid 1px black;
-    text-align:center;
 
+.invitation-card,.host-card{
+	width: 100%;
+	/* display: flex;
+	flex-direction:column;
+	align-content: space-around; */
+	text-align:center;
+	padding:5px;
+	/* position: relative; */
+	/* border: 5px solid #666; */
+	box-sizing:border-box;
+	box-shadow: inset -5px -5px 5px #888;
+	margin-bottom: 5px;
+	border: 2px solid #666;
 }
 
 .host-card{
-    background-image: url("../docs/star.jpeg");
-    /* background-size:  75px 75px; */
+	background-image: url("./star.jpeg");
+	background-size:100% 100%;
     background-repeat: no-repeat;
 	background-position: center;
 }
