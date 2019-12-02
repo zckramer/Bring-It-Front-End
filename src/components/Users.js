@@ -20,9 +20,14 @@ module.exports = {
         const response = await Http.getRequest(`http://localhost:3000/users`)
              
         const userArray = response.users.map(user => {
-            return Deact.create("div", {class:"invite-friend-checkbox"}, [
-                Deact.create("input", { type: "checkbox", class:"user-card", value:`${user._id}`}, ""),
-                Deact.create("span", {}, `${user.name}`) ]
+            return Deact.create("div", {class:"user-card"}, [
+                Deact.create("input", { type: "checkbox", class:"user-checkbox", name:"guestList", value:`${user._id}`}, ""),
+                Deact.create("span", {class:"user-name"}, `${user.name}`),
+                Deact.create(
+                    "img",
+                    { class: `user-icon`, name: user.name, src: user.image, value: user._id },
+                    ""
+                  ) ]
                     
                 ) 
             })

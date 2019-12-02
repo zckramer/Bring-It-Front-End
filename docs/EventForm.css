@@ -3,12 +3,14 @@
 .event-form__container{
     
     justify-content: center;
-    display: block;
-    width: 80%;
+    display: flex;
+    width: 60%;
     height:100%;
+    margin: auto;
+    padding: 2rem;
     box-shadow: 5px 5px 10px gray;
     border-radius: 15px;
-    /* background-color: rgb(212, 231, 39); */
+    background-color: rgb(237, 243, 184);
     background-image: url("../Images/subtle_white_mini_waves.png");
     /* background-image: linear-gradient(rgb(255, 255, 255),rgb(211, 60, 60)); */
     /* margin: 2rem auto 0 auto; */
@@ -25,13 +27,12 @@
 
 .input-friends{
     display: flex;
-    justify-content: center;
-    flex-direction: row;
+    /* justify-content: center; */
+    flex-flow: row wrap;
     height: 250px;
-    width: 50%;
+    width: 100%;
     overflow-y: scroll;
-    flex-wrap: wrap;
-    align-content: stretch;
+    padding: .1rem;
     background-color: white;
     border: 2px inset darkgray;
 
@@ -39,7 +40,7 @@
 }
 .user-icon { 
     grid-area: icon;
-    left: 0;
+    margin: auto;
     height: 30px;
     width: 30px;
     border-radius: 100%;
@@ -51,19 +52,26 @@
 .user-name{
     grid-area: name;
     margin: auto;
-    padding-right: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.user-checkbox {
+    grid-area: box;
+    margin: auto;
 }
 .user-card {
     display: grid;
-    grid-template-areas: 'icon name';
+    grid-template-areas: 'box name icon';
     cursor: pointer;
     background-color: rgb(154, 197, 253);
     border: 1px darkblue solid;
     border-radius: 5px;
-    padding: .3rem;
-    width: 44%;
+    padding: .1rem;
+    width: 30%;
+    height: 2.8rem;
     text-align: center;
-    margin: .3rem
+    margin: .1rem
     
 }
 

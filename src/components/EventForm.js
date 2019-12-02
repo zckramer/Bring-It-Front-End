@@ -5,15 +5,77 @@ const Items = require('./ItemCard')
 
 
 async function RenderEventForm () {
+
+    // Sets the user "Logged In" that's creating the Event
+    // Value is stored on the local browser
+    localStorage.setItem("user", "5ddadb0a374676197cb2102a")
+        console.log(`Logged in as ${localStorage.getItem("user")}`)
+    
+
+
+    function getCheckedUserValues() {
+        const usersNode = document.querySelectorAll(".user-checkbox:checked");
+        const usersArray = [...usersNode];
+        const userValues = [];
+        usersArray.forEach(user => {
+            userValues.push(user.value)
+        })
+        return userValues;    
+    }
+    function getCheckedItemValues() {
+        const itemsNode = document.querySelectorAll(".item-checkbox:checked");
+        const itemsArray = [...itemsNode];
+        const itemsValues = [];
+        itemsArray.forEach(item => {
+            itemsValues.push(item.value)
+        })
+        return itemsValues;    
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        const title = document.querySelector(".input-name").value;
+        const hostId = localStorage.getItem("user");
+        const guestList = getCheckedUserValues();
+
+        // need to add to form:
+        const attendanceLimit = 20;
+
+        const items = getCheckedItemValues();
+        const description = document.querySelector(".input-desc").value;
+        const date = document.querySelector(".input-date").value;
+        const location= document.querySelector(".input-location").value;
+        const theme = document.querySelector(".input-theme").value;
+        
+
+        fetch('http://localhost:3000/events', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ title, hostId, guestList, attendanceLimit, items, description, date, location, theme })
+        })
+            .then(response => {
+                return response.json();
+            })
+            .then(newEvent => {
+
+                // Needs to redirect to the New Event's page
+                console.log(newEvent)
+
+            })
+    }
+
     return Deact.create("article", {class:"event-form__container"}, [
 
         
-            Deact.create("form", {class:"event-form__info", action: "/addNewEvent", method:"POST"}, [
-                Deact.create("input", {class:"input-name", placeholder:"Host Name"}, ""),
-                Deact.create("input", {class:"input-date", placeholder:"Date"}, ""),
-                Deact.create("input", {class:"input-location", placeholder:"Location"}, ""),
-                Deact.create("input", {class:"input-theme", placeholder:"Theme"}, ""),
-                Deact.create("input", {class:"input-desc", placeholder:"Description"}, ""),
+            Deact.create("form", {onsubmit: handleSubmit, class:"event-form__info", action: "/addNewEvent", method:"POST"}, [
+                Deact.create("input", {class:"input-name", placeholder:"Event Name", name:"title"}, ""),
+                Deact.create("input", {class:"input-date", placeholder:"Date", name: "date"}, ""),
+                Deact.create("input", {class:"input-location", placeholder:"Location", name: "location"}, ""),
+                Deact.create("input", {class:"input-theme", placeholder:"Theme", name:"theme"}, ""),
+                Deact.create("input", {class:"input-desc", placeholder:"Description", name:"description"}, ""),
                 Deact.create("br", {}, ""),
                 Deact.create("section", {class:"input-friends"}, await Users.renderFriendsCheckbox()),
                 Deact.create("div", {class:"input-items"}, [
@@ -21,8 +83,8 @@ async function RenderEventForm () {
                     Deact.create("div", {class:"input-items__list"}, await Items.renderItemsCheckbox())
                 ]),
 
-                Deact.create ("button", {class:"event-submit"}, "SUBMIT!")
-                
+                Deact.create ("button", {type: "submit", class:"event-submit"}, "SUBMIT!"),
+                Deact.create ("button", {type: "reset", class: "event-reset"}, "Reset"),
             ])
         
     ])
