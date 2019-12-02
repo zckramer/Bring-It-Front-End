@@ -4,7 +4,7 @@ const users = require("./components/GetUsers");
 
 
 const isLoggedIn = false;
-async function renderApp() { return Deact.render(await App(isLoggedIn), document.querySelector(".app"));}
+ function renderApp() { return Deact.render( App(isLoggedIn), document.querySelector(".app"));}
 
 
 function userLogIn () {
