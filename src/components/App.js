@@ -11,7 +11,7 @@ async function App (isLoggedIn) {
 
 
         // USER LOGIN    
-        // return Deact.create("div", {class:"users-area"}, await Users.renderUsers())    
+        // return Deact.render(await Users.renderUsers(), document.querySelector(".home-page-container"))    
     }
 
 

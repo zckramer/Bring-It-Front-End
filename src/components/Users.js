@@ -10,7 +10,16 @@ module.exports = {
              
              const userArray = response.users.map(user => {
                 //  console.log(user.name)
-                 return Deact.create("div", {class:"user-card", id:`${user._id}`}, UserCard(user))
+                //  return Deact.create("div", {class:"user-card", id:`${user._id}`}, UserCard(user))
+
+                return Deact.create("section", { class: `user-card`, name: user.name, value: user._id,}, [
+                    Deact.create("h3", { class: `user-card__name`, name: user.name, value: user._id }, user.name),
+                    Deact.create(
+                      "img",
+                      { class: `user-card__avatar`, name: user.name, src: user.image, value: user._id },
+                      ""
+                    )
+                  ])
              })
              return Deact.create('div', {}, userArray)
     },
