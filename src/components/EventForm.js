@@ -71,12 +71,16 @@ async function RenderEventForm () {
 
         
             Deact.create("form", {onsubmit: handleSubmit, class:"event-form__info", action: "/addNewEvent", method:"POST"}, [
-                Deact.create("input", {class:"input-name", placeholder:"Event Name", name:"title"}, ""),
-                Deact.create("input", {class:"input-date", placeholder:"Date", name: "date"}, ""),
-                Deact.create("input", {class:"input-location", placeholder:"Location", name: "location"}, ""),
-                Deact.create("input", {class:"input-theme", placeholder:"Theme", name:"theme"}, ""),
-                Deact.create("input", {class:"input-desc", placeholder:"Description", name:"description"}, ""),
-                Deact.create("br", {}, ""),
+                Deact.create("h1", {class:"form-header"}, "Create A New Event"),
+                Deact.create("section", {class:"inputs-container"}, [
+
+                    Deact.create("input", {class:"input-name", placeholder:"Event Name", name:"title", required:"required"}, ""),
+                    Deact.create("input", {class:"input-date", placeholder:"Date", name: "date", required:"required"}, ""),
+                    Deact.create("input", {class:"input-location", placeholder:"Location", name: "location", required:"required"}, ""),
+                    Deact.create("input", {class:"input-theme", placeholder:"Theme", name:"theme", required:"required"}, ""),
+                    Deact.create("textarea", {class:"input-desc", placeholder:"Description", name:"description", required:"required"}, ""),
+
+                ]),
                 Deact.create("section", {class:"input-friends"}, await Users.renderFriendsCheckbox()),
                 Deact.create("div", {class:"input-items"}, [
                     "checkboxes of items to bring",

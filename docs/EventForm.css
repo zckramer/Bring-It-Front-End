@@ -5,33 +5,55 @@
     justify-content: center;
     display: flex;
     width: 60%;
-    height:100%;
-    margin: auto;
-    padding: 2rem;
+    height:85%;
+    margin: 1rem auto;
+    padding: 1rem;
     box-shadow: 5px 5px 10px gray;
     border-radius: 15px;
-    background-color: rgb(237, 243, 184);
+    background-color: rgb(224, 224, 219);
     background-image: url("../Images/subtle_white_mini_waves.png");
-    /* background-image: linear-gradient(rgb(255, 255, 255),rgb(211, 60, 60)); */
-    /* margin: 2rem auto 0 auto; */
-    /* padding: 2rem; */
+    text-align: center;
     font-family: Lato, 'Sans Serif';
     
 }
-
-.input-name{
+.form-header {
+    font-size: 2.2rem;
+    border-bottom: 2px solid gray;
+    letter-spacing: .2rem;
+    padding: .5rem;
+    margin: 0 0 .8rem 0;
+}
+.inputs-container {
     display: flex;
-    justify-content: space-evenly;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.inputs-container > input, .inputs-container > textarea {
+    border: 1px inset darkgray;
+    border-radius: 5px;
+    margin: .2rem;
+    font-family: Lato, sans-serif;
+    padding: 0 .2rem;
+}
+.input-name{
+    width: 80%;
     
+}
+.input-desc{
+    width: 100%;
+    height: 3rem;
+    resize: none;
 }
 
 .input-friends{
     display: flex;
-    /* justify-content: center; */
+    justify-content: center;
+    align-content: flex-start;
     flex-flow: row wrap;
     height: 250px;
     width: 100%;
     overflow-y: scroll;
+    margin: .2rem 0;
     padding: .1rem;
     background-color: white;
     border: 2px inset darkgray;
@@ -68,7 +90,7 @@
     border: 1px darkblue solid;
     border-radius: 5px;
     padding: .1rem;
-    width: 30%;
+    width: 12rem;
     height: 2.8rem;
     text-align: center;
     margin: .1rem
