@@ -4,14 +4,15 @@ const UserCard = require('../components/UserCard')
 const Users = require('../components/Users')
 const HomePage = require('../components/HomePage')
 const EventForm = require('../components/EventForm')
+const LogIn = require('./LogIn')
 
 async function App (isLoggedIn) {
         // DEV -- EDITTING HOME PAGE
-        return Deact.render( await HomePage(), document.querySelector(".home-page-container"))            
+        // return Deact.render( await HomePage(), document.querySelector(".home-page-container"))            
 
 
-        // USER LOGIN    
-        // return Deact.render(await Users.renderUsers(), document.querySelector(".home-page-container"))    
+        // DEV --- USER LOGIN    
+        return Deact.render(await LogIn(), document.querySelector(".home-page-container") )  
     }
 
 
