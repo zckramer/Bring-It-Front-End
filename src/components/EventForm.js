@@ -8,8 +8,8 @@ async function RenderEventForm () {
 
     // Sets the user "Logged In" that's creating the Event
     // Value is stored on the local browser
-    localStorage.setItem("user", "5ddadb0a374676197cb2102a")
-        console.log(`Logged in as ${localStorage.getItem("user")}`)
+    // localStorage.setItem("user", "5ddadb0a374676197cb2102a")
+    //     console.log(`Logged in as ${localStorage.getItem("user")}`)
     
     function resetCheckboxes() {
         const checkedFriends  = document.querySelectorAll(".user-card.checked")

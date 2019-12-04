@@ -1,7 +1,8 @@
   const Deact = require('../libs/Deact')
   const EventForm = require('../components/EventForm')
 
-  async function HomePage (userId) {
+
+  async function HomePage () {
     return  (
       Deact.create("section", {class: "main-container"},[
         
@@ -12,9 +13,9 @@
         // Deact.create("div", {class: "attendees"}, "Attendees!"),
         // Deact.create("div", {class: "assignments"}, "Assignments") 
         
-        //EVENT FORM
+        //EVENT FORM TEST
         // Deact.create("div", {class: "event-form"}, EventForm())
-        await EventForm()
+         await EventForm()
 
         
      ]))

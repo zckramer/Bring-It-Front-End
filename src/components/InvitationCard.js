@@ -44,15 +44,16 @@ function makePage() {
 
 // Deact.render(HomePage(), document.querySelector('.app'));
 
-function Invitations(myEvents){
-  document.querySelector('.nav-bar').innerHTML = "";
+async function Invitations(){
+  const userId = localStorage.getItem("user")
+  const response = await Http.getRequest(`http://localhost:3000/users/${userId}/attending`)
+  console.log(response)
+  document.querySelector('.nav-bar').innerHTML = `${response.user.eventsAttending[0].title}`;
 
-  console.log("Invitations")
-  // myEvents.map(element => console.log(element))
-  myEvents.map(element => {
+  // myEvents.map(element => {
 
-    InvitationCard(element)
-  })
+  //   InvitationCard(element)
+  // })
     // InvitationCard(element))
   // InvitationCard(myEvents[0]);
 
