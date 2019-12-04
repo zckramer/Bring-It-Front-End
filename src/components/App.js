@@ -14,41 +14,28 @@ async function App (itemToRender) {
     switch(itemToRender){
 
         case "LogIn":
-
             Deact.render(await LogIn(), document.querySelector(".home-page-container") ) 
-
         break;
 
         case "HomePage":
-                Deact.render(await HomePage(), document.querySelector(".home-page-container"))            
-
+            Deact.render(await HomePage(), document.querySelector(".home-page-container"))            
         break;
 
         case "NavBar":
-                Deact.render(await  NavBar(), document.querySelector(".home-page-container"))
+            Deact.render(await  NavBar(), document.querySelector(".home-page-container"))
         break;
 
         default:
             console.log("App Switch Failed");
-    
-
-    }
-
-    ;
+    };
 
     // call log in to get user "_id":"5ddadb0a374676197cb2102a"
 
     // query API for user Events
+
     // populate navbar with Invited and Hosted events
 
-
-    // return 
-    
-    const  testEvents =  [{title:"Birthday", date:"January 11, 2020", eventId:"5de71d3fb40e867d70d1a1ce"},
-    {title:"Slumber", date:"March 11, 2020", eventId:"5de71d5bb40e867d70d1a1cf"},
-    {title:"Holiday", date:"Dec. 11, 2020", eventId:"5de71d9bb40e867d70d1a1d0"}
-]
-Deact.render(Invitations(testEvents), document.querySelector(".nav-bar"))
+    Deact.render(Invitations(testEvents), document.querySelector(".nav-bar"))
 
 //    console.log(testEvents);
         // DEV -- EDITTING HOME PAGE
