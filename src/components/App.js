@@ -5,9 +5,9 @@ const Users = require('../components/Users')
 const HomePage = require('../components/HomePage')
 const NavBar = require('../components/NavBar')
 const Invitations = require('../components/InvitationCard')
-
+const LogIn = require("./LogIn")
  
-function App (isLoggedIn) {
+async function App (userId) {
     // return 
     // Deact.render(Invitations(testEvents), document.querySelector(".nav-bar"))
 
@@ -25,7 +25,10 @@ function App (isLoggedIn) {
         // )
 
         // DEV --- USER LOGIN    
-        return Deact.render(await LogIn(), document.querySelector(".home-page-container") )  
+        
+Deact.create("div", {class:"welcome-message"}, `${userId.name}`)
+        
+    return Deact.render(await LogIn(), document.querySelector(".home-page-container") )  
     }
 
 
