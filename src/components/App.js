@@ -8,18 +8,16 @@ const Invitations = require('../components/InvitationCard')
 
  
 function App (isLoggedIn) {
+    // return 
+    // Deact.render(Invitations(testEvents), document.querySelector(".nav-bar"))
 
-   const  testEvents =  [{title:"Birthday", date:"January 11, 2020"},
-                        {title:"Slumber", date:"Mardh 11, 2020"},
-                        {title:"Holiday", date:"Dec. 11, 2020"}
-                        ]
-   
-   console.log(testEvents);
+//    const  testEvents =  [{title:"Birthday", date:"January 11, 2020", eventId:"5de71d3fb40e867d70d1a1ce"},
+//                         {title:"Slumber", date:"March 11, 2020", eventId:"5de71d5bb40e867d70d1a1cf"},
+//                         {title:"Holiday", date:"Dec. 11, 2020", eventId:"5de71d9bb40e867d70d1a1d0"}
+//                         ]
+
+//    console.log(testEvents);
         // DEV -- EDITTING HOME PAGE
-        console.log(document.querySelector(".nav-bar"))
-        return Deact.render( Invitations(testEvents), document.querySelector(".nav-bar")   
-                
-        )
 
         // return Deact.render(await NavBar(), document.querySelector(".home-page-container")   
                 

@@ -7,6 +7,7 @@ function handleClickEvent () {
   
   console.log("INVITATION CARD CLICKED");
   makePage();
+ 
 }
 
 
@@ -22,12 +23,18 @@ function makePage() {
     Deact.create("div", { class: `attendees`},`attendees`),
     Deact.create("div", { class: `assignments`},`assignments`)
   ]);
+
+  // const filledPage =populatePage(pageMade);
   
   return Deact.render(pageMade, document.querySelector('.home-page-container'))
 
 }
 
+// function populatePage(pageMade) {
 
+//   document.querySelector('.my-event')
+
+// };
 
 // Deact.render(HomePage(), document.querySelector('.app'));
 
@@ -50,7 +57,7 @@ function InvitationCard (myEvent) {
   console.log("InvitationCard") 
   console.log("myEvent.title: "+ myEvent.title);
   const card = Deact.create("section", { class: `invitation-card`, onclick: handleClickEvent},[ 
-    Deact.create("h4", { class: `invitation__name`},`${myEvent.title}<br/>${myEvent.date} `) ])
+    Deact.create("h4", { class: `invitation__name`},`${myEvent.title}<br/>${myEvent.date} <br/>${myEvent.eventId}`) ])
     return Deact.render(card, document.querySelector(".nav-bar"));
 };
 
