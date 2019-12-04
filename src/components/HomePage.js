@@ -6,7 +6,7 @@
     return  (
       Deact.create("section", {class: "main-container"},[
         
-
+        
         // HOME PAGE
         // Deact.create("div", {class: "my-event"}, "My Event!"),
         // Deact.create("div", {class: "host"}, "Host!"),

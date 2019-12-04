@@ -59,8 +59,10 @@ async function App (itemToRender) {
         // )
 
         // DEV --- USER LOGIN    
-
-        // return Deact.render(await LogIn(), document.querySelector(".home-page-container") )  
+        
+Deact.create("div", {class:"welcome-message"}, `${userId.name}`)
+        
+    return Deact.render(await LogIn(), document.querySelector(".home-page-container") )  
     }
 
 
