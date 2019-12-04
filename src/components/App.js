@@ -3,15 +3,29 @@ const Http = require("../utils/Http");
 const UserCard = require('../components/UserCard')
 const Users = require('../components/Users')
 const HomePage = require('../components/HomePage')
-const EventForm = require('../components/EventForm')
+const NavBar = require('../components/NavBar')
+const Invitations = require('../components/InvitationCard')
 
-async function App (isLoggedIn) {
+ 
+function App (isLoggedIn) {
+    // return 
+    // Deact.render(Invitations(testEvents), document.querySelector(".nav-bar"))
+
+//    const  testEvents =  [{title:"Birthday", date:"January 11, 2020", eventId:"5de71d3fb40e867d70d1a1ce"},
+//                         {title:"Slumber", date:"March 11, 2020", eventId:"5de71d5bb40e867d70d1a1cf"},
+//                         {title:"Holiday", date:"Dec. 11, 2020", eventId:"5de71d9bb40e867d70d1a1d0"}
+//                         ]
+
+//    console.log(testEvents);
         // DEV -- EDITTING HOME PAGE
-        return Deact.render( await HomePage(), document.querySelector(".home-page-container"))            
+        // return Deact.render( await HomePage(), document.querySelector(".home-page-container"))            
 
+        // return Deact.render(await NavBar(), document.querySelector(".home-page-container")   
+                
+        // )
 
-        // USER LOGIN    
-        // return Deact.render(await Users.renderUsers(), document.querySelector(".home-page-container"))    
+        // DEV --- USER LOGIN    
+        return Deact.render(await LogIn(), document.querySelector(".home-page-container") )  
     }
 
 
