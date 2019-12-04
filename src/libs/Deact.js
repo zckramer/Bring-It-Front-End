@@ -28,5 +28,9 @@ module.exports = {
       }
   
       return createdElement;
+    },
+    remove(attributes = {}){
+      return document.querySelector(attributes).innerHTML = "";
+
     }
   };
