@@ -5,9 +5,43 @@ const Users = require('../components/Users')
 const HomePage = require('../components/HomePage')
 const NavBar = require('../components/NavBar')
 const Invitations = require('../components/InvitationCard')
-
+const LogIn = require('../components/LogIn')
  
-function App (isLoggedIn) {
+async function App (itemToRender) {
+
+
+
+    switch(itemToRender){
+
+        case "LogIn":
+
+            Deact.render(await LogIn(), document.querySelector(".home-page-container") ) 
+
+        break;
+
+        case "HomePage":
+                Deact.render(await HomePage(), document.querySelector(".home-page-container"))            
+
+        break;
+
+        case "NavBar":
+                Deact.render(await  NavBar(), document.querySelector(".home-page-container"))
+        break;
+
+        default:
+            console.log("App Switch Failed");
+    
+
+    }
+
+    ;
+
+    // call log in to get user "_id":"5ddadb0a374676197cb2102a"
+
+    // query API for user Events
+    // populate navbar with Invited and Hosted events
+
+
     // return 
     // Deact.render(Invitations(testEvents), document.querySelector(".nav-bar"))
 
@@ -25,7 +59,8 @@ function App (isLoggedIn) {
         // )
 
         // DEV --- USER LOGIN    
-        return Deact.render(await LogIn(), document.querySelector(".home-page-container") )  
+
+        // return Deact.render(await LogIn(), document.querySelector(".home-page-container") )  
     }
 
 

@@ -3,15 +3,19 @@ const App = require("./components/App");
 const users = require("./components/GetUsers");
 
 
-const isLoggedIn = false;
- function renderApp() { return Deact.render( App(isLoggedIn), document.querySelector(".app"));}
+ async function renderApp(RenderThis) { return Deact.render( await App(RenderThis), document.querySelector(".app"));}
 
+ localStorage.setItem("user", null)
 
-function userLogIn () {
-    isLoggedIn = true;
+if (!localStorage.getItem("user") === null) {
+    console.log(localStorage.getItem("user"))
+    console.log("HomePage")
+    
+      renderApp("HomePage");  
+    
+} else {
+    console.log(localStorage.getItem("user"))
+
+    renderApp("LogIn");
+    console.log("LogIn")
 }
-
-renderApp();
-
-
-module.exports = userLogIn
