@@ -2,12 +2,18 @@ const Deact = require('../libs/Deact');
 const App = require('../components/App');
 const renderApp = require('../index');
 const HomePage = require('./HomePage');
+const EventDetails = require('./ManageEvent')
 
 function handleClickEvent () {
   
   console.log("INVITATION CARD CLICKED");
-  makePage();
- 
+  const id = event.target.eventId
+  return Deact.render(EventDetails(id), document.querySelector(".home-page-container"))
+
+  // makePage();
+  // render ManageEvents 
+  
+
 }
 
 

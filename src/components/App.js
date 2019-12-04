@@ -9,12 +9,12 @@ const LogIn = require("./LogIn")
  
 async function App (userId) {
     // return 
-    // Deact.render(Invitations(testEvents), document.querySelector(".nav-bar"))
-
-//    const  testEvents =  [{title:"Birthday", date:"January 11, 2020", eventId:"5de71d3fb40e867d70d1a1ce"},
-//                         {title:"Slumber", date:"March 11, 2020", eventId:"5de71d5bb40e867d70d1a1cf"},
-//                         {title:"Holiday", date:"Dec. 11, 2020", eventId:"5de71d9bb40e867d70d1a1d0"}
-//                         ]
+    
+    const  testEvents =  [{title:"Birthday", date:"January 11, 2020", eventId:"5de71d3fb40e867d70d1a1ce"},
+    {title:"Slumber", date:"March 11, 2020", eventId:"5de71d5bb40e867d70d1a1cf"},
+    {title:"Holiday", date:"Dec. 11, 2020", eventId:"5de71d9bb40e867d70d1a1d0"}
+]
+Deact.render(Invitations(testEvents), document.querySelector(".nav-bar"))
 
 //    console.log(testEvents);
         // DEV -- EDITTING HOME PAGE
@@ -25,10 +25,8 @@ async function App (userId) {
         // )
 
         // DEV --- USER LOGIN    
-        
-Deact.create("div", {class:"welcome-message"}, `${userId.name}`)
-        
-    return Deact.render(await LogIn(), document.querySelector(".home-page-container") )  
+
+    return Deact.render(await InvitationCard(), document.querySelector(".home-page-container") )  
     }
 
 
