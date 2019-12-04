@@ -4,17 +4,20 @@ const UserCard = require('../components/UserCard')
 const Users = require('../components/Users')
 const HomePage = require('../components/HomePage')
 const NavBar = require('../components/NavBar')
-const InvitationCard = require('../components/InvitationCard')
+const Invitations = require('../components/InvitationCard')
 
  
 function App (isLoggedIn) {
 
-   const  testEvent =  {title:"birthday", date:"January 11, 2020"}
+   const  testEvents =  [{title:"Birthday", date:"January 11, 2020"},
+                        {title:"Slumber", date:"Mardh 11, 2020"},
+                        {title:"Holiday", date:"Dec. 11, 2020"}
+                        ]
    
-   console.log(testEvent);
+   console.log(testEvents);
         // DEV -- EDITTING HOME PAGE
         console.log(document.querySelector(".nav-bar"))
-        return Deact.render( InvitationCard(testEvent), document.querySelector(".nav-bar")   
+        return Deact.render( Invitations(testEvents), document.querySelector(".nav-bar")   
                 
         )
 

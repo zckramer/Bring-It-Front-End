@@ -2,42 +2,57 @@ const Deact = require('../libs/Deact');
 const App = require('../components/App');
 const renderApp = require('../index');
 const HomePage = require('./HomePage');
-let x = 0;
+
 function handleClickEvent () {
   
- console.log("invitation card clicked");
-//  document.querySelector('.main-container').innerHTML = `<p> ${++x} </p>` ;
-//document.querySelector('.main-container').innerHTML = "";
-  
- 
-//  document.querySelector( '.host').innerHTML = `<p>host</p>`
-  // Deact.create("div", { class: `attendees`},"attendees"),
-  // Deact.create("div", { class: `assignments`},"assignments")
+  console.log("INVITATION CARD CLICKED");
+  makePage();
+}
+
+
 function makePage() {
-  
-  return Deact.create("section", { class: `main-container-event`},[
+  if (document.querySelector(".main-container-event") != null){
+    document.querySelector('.main-container-event').innerHTML = "";
+
+  }
+
+  const pageMade = Deact.create("section", { class: `main-container-event`},[
     Deact.create("div", { class: `my-event`},`my-event`),
     Deact.create("div", { class: `host`},`host`),
     Deact.create("div", { class: `attendees`},`attendees`),
     Deact.create("div", { class: `assignments`},`assignments`)
-    
   ]);
+  
+  return Deact.render(pageMade, document.querySelector('.home-page-container'))
 
 }
-  Deact.render(makePage(), document.querySelector('.home-page-container'))
-// document.querySelector( '.host').innerHTML = `<p>host</p>`;
+
+
+
+// Deact.render(HomePage(), document.querySelector('.app'));
+
+function Invitations(myEvents){
+  document.querySelector('.nav-bar').innerHTML = "";
+
+  console.log("Invitations")
+  // myEvents.map(element => console.log(element))
+  myEvents.map(element => {
+
+    InvitationCard(element)
+  })
+    // InvitationCard(element))
+  // InvitationCard(myEvents[0]);
 
 }
-
-document.querySelector('.nav-bar').innerHTML = "";
-Deact.render(HomePage(), document.querySelector('.app'));
 
 function InvitationCard (myEvent) {
-
-  console.log(myEvent.title);
-    return Deact.create("section", { class: `invitation-card`, onclick: handleClickEvent},[ 
-      Deact.create("h4", { class: `invitation__name`},`${myEvent.title}<br/>${myEvent.date} `) ])
+ 
+  console.log("InvitationCard") 
+  console.log("myEvent.title: "+ myEvent.title);
+  const card = Deact.create("section", { class: `invitation-card`, onclick: handleClickEvent},[ 
+    Deact.create("h4", { class: `invitation__name`},`${myEvent.title}<br/>${myEvent.date} `) ])
+    return Deact.render(card, document.querySelector(".nav-bar"));
 };
 
 
-module.exports = InvitationCard;
+module.exports = Invitations;
