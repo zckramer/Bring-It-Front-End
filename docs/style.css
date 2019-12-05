@@ -1,7 +1,11 @@
 @import "EventForm.css";
+html {
+	width: 99vw;
+}
 
 body {
-	height: 100vh;
+	height: 100%;
+	width: 100%;
 }
 
 .app {
@@ -78,20 +82,30 @@ body {
 }
 
 .main-container {
-	width: 100%;
-	height: 100%;
+	width: 99%;
+	height: 99%;
 	grid-area: main;
 
 	
 }
 .main-container-event {
-	width: 100%;
-	height: 100%;
+	width: 90%;
+	height: 90%;
 	display: grid;
     grid-template-rows: 50% 50%;
     grid-template-columns: 20% 20% 20% 20% 20% ;
 	grid-template-areas: "my-event my-event host host host" 
 	"attendees attendees assignments assignments assignments";
+
+	margin: 1rem auto;
+    padding: 1rem;
+    /* box-shadow: 5px 5px 10px gray; */
+    border: 2px solid darkgray;
+    border-radius: 15px;
+    background-color: rgb(224, 224, 219);
+    background-image: url("../Images/subtle_white_mini_waves.png");
+    text-align: center;
+    font-family: Lato, 'Sans Serif';
 }
 
 /* .event-form__container{
@@ -102,18 +116,20 @@ body {
 
 .my-event {
 	grid-area: my-event;
-	width: 100%;
-	height: 100%;
+	width: 95%;
+	height: 95%;
+
+
 	/* border: 1px solid black; */
 	/* padding: 1px; */
 
-	background-color: #7a7a2c;
+	background-color: rgb(120, 226, 21);
 }
 
 .host {
 	grid-area: host;
-	width: 100%;
-	height: 100%;
+	width: 95%;
+	height: 95%;
 	/* border: 1px solid black; */
 	/* padding: 1px; */
 
@@ -122,8 +138,8 @@ body {
 
 .attendees {
 	grid-area: attendees;
-	width: 100%;
-	height: 100%;
+	width: 95%;
+	height: 95%;
 	/* border: 1px solid black; */
 	/* padding: 1px; */
 
@@ -132,8 +148,8 @@ body {
 
 .assignments {
 	grid-area: assignments;
-	width: 100%;
-	height: 100%;
+	width: 95%;
+	height: 95%;
 	/* border: 1px solid black; */
 	/* padding: 1px; */
 
