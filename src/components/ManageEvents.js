@@ -3,7 +3,7 @@ const Http = require("../utils/Http")
 
 async function ManageEvent(eventId) {
     console.log(eventId);
-    const response = await Http.getRequest(`http://localhost:3000/events/${eventId}`)
+    const response = await Http.getRequest(`http://localhost:3000/events/${eventId}/guestlist`)
     const event = response.event;
     // console.log(event)
 
@@ -12,8 +12,7 @@ async function ManageEvent(eventId) {
     return (Deact.create("div", {class:"main-container-event"}, [
        Deact.create("div", {class:"my-event"}, eventDetails(event)),
         Deact.create("div", {class:"host"}, await hostDetails(event.hostId) ),
-        Deact.create("div", {class:"attendees"}, inviteesList(eventId)),
-        Deact.create("div", {class:"attendees"},"attendees"),
+        Deact.create("div", {class:"attendees"}, inviteesList(event)),
         Deact.create("div", {class:"assignments"}, await itemsList(eventId) ),
         
 ]))}
@@ -28,17 +27,10 @@ function eventDetails(event) {
     return myEventDetails  
 }
 
-function inviteesList(eventId) {
-    const invitees = Deact.create("ul", {class:"attendees__list"}, [
-        getEventDetails(),
-        Deact.create("li", {class:"attendees__list-item"}, "Attendee #3")
-         
-    ])
-}
 
 
 async function hostDetails(hostId){
-   
+    
     const response = await Http.getRequest(`http://localhost:3000/users/${hostId}`)
     const host = response.user
     
@@ -56,8 +48,8 @@ async function itemsList(eventId){
     
     const ItemCards = itemsArray.map(item => {
         return ( Deact.create("section", {class:"event-item-card"}, [
-          Deact.create("div", {class:"event-item-title"}, `${item.itemName}`), 
-        Deact.create("div", {class:"event-item-assigned"}, `${item.assignedTo.name}`)  
+            Deact.create("div", {class:"event-item-title"}, `${item.itemName}`), 
+            Deact.create("div", {class:"event-item-assigned"}, `${item.assignedTo.name}`)  
         ]))
     })
     const itemsContainer = Deact.create("ul", {class:"items__items-details"}, ItemCards)
@@ -65,28 +57,30 @@ async function itemsList(eventId){
     return itemsContainer
 } 
 
-async function getEventDetails (eventId) {
-    const eventResponse = Http.getRequest(`http://localhost:3000/events/${eventId}`)
-    const attendeeArray = eventResponse.guestList.map(guest => {
-        const guestName = Http.getRequest(`http://localhost:3000/users/${guest.name}`)
-        const guestImage = Http.getRequest(`http://localhost:3000/users/${guest.image}`)
-        const attendeeListCard = Deact.create("li", {class:"attendee__list-item"}, [
+// function inviteesList(event) {
+    
+//     const invitees = Deact.create("ul", {class:"attendees__list"}, [
+//         getEventDetails(event)
+//     ])
+//     return invitees
+// }
+
+function inviteesList (event) {
+    const attendeeArray = event.guestList.map(guest => {
+        const guestName = guest.name
+        const guestImage = guest.image
+        console.log(guest)
+        return (Deact.create("li", {class:"attendee__list-item"}, [
             Deact.create("span", {class:"attendees__list-item-name"}, guestName),
             Deact.create("span", {class:"attendees__list-item-name"}, guestImage)
-        ])
-        return Deact.render(attendeeListCard,document.querySelector(".attendees__list"));
-        
-        // return Deact.create("section", { class: `user-card`, name: user.name, value: user._id,}, [
-        // Deact.create("h3", { class: `user-card__name`, name: user.name, value: user._id }, user.name),
-        // Deact.create(
-        //     "img",
-        //     { class: `user-card__avatar`, name: user.name, src: user.image, value: user._id },
-        //     ""
-        // )
-        // ])
+        ]))
     })
-    // return Deact.create('div', {}, userArray)
-}
+    console.log(attendeeArray)
+            const invitees = Deact.create("ul", {class:"attendees__list"}, attendeeArray)
+            return invitees;
 
+        // Deact.render(invitees, document.querySelector('.attendees__list'))
+
+}
 
 module.exports = ManageEvent;
