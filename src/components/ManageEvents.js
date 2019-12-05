@@ -12,10 +12,10 @@ async function ManageEvent(eventId) {
     return (Deact.create("div", {class:"main-container-event"}, [
        Deact.create("div", {class:"my-event"}, eventDetails(event)),
         Deact.create("div", {class:"host"}, await hostDetails(event.hostId) ),
-        // Deact.create("div", {class:"attendees"}, inviteesList(eventId)),
+        Deact.create("div", {class:"attendees"}, inviteesList(eventId)),
         Deact.create("div", {class:"attendees"},"attendees"),
-        // Deact.create("div", {class:"assignments"}, await itemsList(eventId) ),
-        Deact.create("div", {class:"assignments"}, "assignments" )
+        Deact.create("div", {class:"assignments"}, await itemsList(eventId) ),
+        
 ]))}
 
 function eventDetails(event) {
@@ -23,7 +23,7 @@ function eventDetails(event) {
     const myEventDetails = Deact.create("div", {class:"my-event__event-details"},[
         Deact.create("p", {class:"my-event__title"}, `${event.title}`),
         Deact.create("p", {class:"my-event__date"}, `${event.date}`),
-        Deact.create("p", {class:"my-event__details"}, "event.description")
+        Deact.create("p", {class:"my-event__details"}, `${event.description}`)
     ])
     return myEventDetails  
 }
@@ -55,11 +55,9 @@ async function itemsList(eventId){
     const itemsArray = response.event.items;
     
     const ItemCards = itemsArray.map(item => {
-        // Http.getRequest(`http://localhost:3000/users/${item.assignedTo}`)
-
         return ( Deact.create("section", {class:"event-item-card"}, [
-          Deact.create("div", {class:"event-item-title"}, "Sailor Who"), 
-        Deact.create("div", {class:"event-item-assigned"}, "")  
+          Deact.create("div", {class:"event-item-title"}, `${item.itemName}`), 
+        Deact.create("div", {class:"event-item-assigned"}, `${item.assignedTo.name}`)  
         ]))
     })
     const itemsContainer = Deact.create("ul", {class:"items__items-details"}, ItemCards)
