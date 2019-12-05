@@ -6,10 +6,17 @@ const HomePage = require('../components/HomePage')
 const NavBar = require('../components/NavBar')
 const Invitations = require('../components/InvitationCard')
 const LogIn = require('../components/LogIn')
+const RenderForm = require('../components/EventForm')
  
+
+
+document.querySelector(".new-event").addEventListener('click', renderEventForm)
+
+async function renderEventForm() {
+    Deact.render(await RenderForm(), document.querySelector('.main-container') )
+}
+
 async function App (itemToRender) {
-
-
 
     switch(itemToRender){
 

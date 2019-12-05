@@ -11,6 +11,7 @@ async function RenderEventForm () {
     // localStorage.setItem("user", "5ddadb0a374676197cb2102a")
     //     console.log(`Logged in as ${localStorage.getItem("user")}`)
     
+    document.querySelector('.main-container').innerHTML = "";
     function resetCheckboxes() {
         const checkedFriends  = document.querySelectorAll(".user-card.checked")
         checkedFriends.forEach(friend => {
