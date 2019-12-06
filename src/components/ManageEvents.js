@@ -43,11 +43,48 @@ async function itemsList(eventId){
     const itemsArray = response.event.items;
     
     const ItemCards = itemsArray.map(item => {
-        return ( Deact.create("section", {class:"event-item-card"}, [
-            Deact.create("div", {class:"event-item-title"}, `${item.itemName}`), 
-            Deact.create("div", {class:"event-item-assigned"}, `${item.assignedTo.name}`)  
-        ]))
+        
+        // return ( Deact.create("section", {class:"event-item-card"}, [
+        //             Deact.create("div", {class:"event-item-title"}, `${item.itemName}`), 
+        //             Deact.create("div", {class:"event-item-assigned"}, `You're bringing this!`)  
+        //         ]))
+
+        const userLoggedIn = localStorage.getItem("user")
+        if (userLoggedIn === item.assignedTo._id){
+            return ( Deact.create("section", {class:"event-item-card"}, [
+                Deact.create("div", {class:"event-item-title"}, `${item.itemName}`), 
+                Deact.create("div", {class:"event-item-assigned"}, `You're bringing this!`)  
+            ]))
+        } else {    
+            return ( Deact.create("section", {class:"event-item-card"}, [
+                Deact.create("div", {class:"event-item-title"}, `${item.itemName}`), 
+                Deact.create("button", {type: "submit", onclick: handleSubmit, id:item._id}, "Bring It")  
+            ]))
+        }
     })
+
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        const itemId = e.target.id
+        const toBeAssignedTo = localStorage.getItem("user")
+
+        fetch(`http://localhost:3000/items/${itemId}/assigned`, {
+            method: "PATCH",
+            headers: {
+                "Content_Type": "application/json"
+            },
+            body: JSON.stringify({toBeAssignedTo})
+        })
+        .then(response => {
+            console.log(response)
+            return response.json();
+        })
+        // .then(() => {
+
+        // } )
+    }
+
     const itemsContainer = Deact.create("ul", {class:"items__items-details"}, ItemCards)
     
     return itemsContainer

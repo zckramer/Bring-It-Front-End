@@ -2,7 +2,7 @@ const Deact = require('../libs/Deact')
 const Users = require('../components/Users')
 const Http = require('../utils/Http')
 const Items = require('./ItemCard')
-
+const ManageEvent=require('./ManageEvent')
 
 async function RenderEventForm () {
 
@@ -68,7 +68,9 @@ async function RenderEventForm () {
             .then(newEvent => {
 
                 // Needs to redirect to the New Event's page
+                document.querySelector('.main-container').innerHTML = "";
                 console.log(newEvent)
+                ManageEvents(newEvent);
 
             })
     }
