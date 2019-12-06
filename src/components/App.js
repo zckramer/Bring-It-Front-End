@@ -36,28 +36,8 @@ async function App (itemToRender) {
             console.log("App Switch Failed");
     };
 
-    // call log in to get user "_id":"5ddadb0a374676197cb2102a"
-
-    // query API for user Events
-
-    // populate navbar with Invited and Hosted events
-
-    Deact.render(Invitations(testEvents), document.querySelector(".nav-bar"))
-
-//    console.log(testEvents);
-        // DEV -- EDITTING HOME PAGE
-        // return Deact.render( await HomePage(), document.querySelector(".home-page-container"))            
-
-        // return Deact.render(await NavBar(), document.querySelector(".home-page-container")   
-                
-        // )
-
-        // DEV --- USER LOGIN    
-
-    return Deact.render(await InvitationCard(), document.querySelector(".home-page-container") )  
+  
     }
-
-
 
 
 module.exports = App;
