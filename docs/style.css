@@ -45,7 +45,7 @@ body {
 	display:flex;
 	width:100%;
 	height: 100px;
-	background-color: #ffffff;
+	/* background-color: #ffffff; */
 	border-bottom:2px solid black ;
 	box-shadow: 4px 4px 10px darkgray;
 	font-family: Lato;
@@ -62,7 +62,7 @@ body {
 	margin: 0%;
 	height: 100%;
 	width:100%;
-	background-color: #599e47;
+	background-color: whitesmoke;
 	display:flex;
 	flex-direction:column;
 }
@@ -110,7 +110,7 @@ body {
     /* box-shadow: 5px 5px 10px gray; */
     border: 2px solid darkgray;
     border-radius: 15px;
-    background-color: rgb(224, 224, 219);
+    /* background-color: rgb(224, 224, 219); */
     background-image: url("../Images/subtle_white_mini_waves.png");
     text-align: center;
     font-family: Lato, 'Sans Serif';
@@ -131,7 +131,7 @@ body {
 	/* border: 1px solid black; */
 	/* padding: 1px; */
 
-	background-color: rgb(120, 226, 21);
+	background-color: whitesmoke;
 }
 
 .host {
@@ -141,7 +141,7 @@ body {
 	/* border: 1px solid black; */
 	/* padding: 1px; */
 
-	background-color: #ff64ac;
+	background-color: whitesmoke;
 }
 
 .attendees {
@@ -151,7 +151,7 @@ body {
 	/* border: 1px solid black; */
 	/* padding: 1px; */
 	display: flex;
-	background-color: #ffff64;
+	background-color: whitesmoke;
 }
 
 .assignments {
@@ -161,7 +161,7 @@ body {
 	/* border: 1px solid black; */
 	/* padding: 1px; */
 
-	 background-color: #a89fdb; 
+	 background-color: whitesmoke; 
 }
 
 .footer {
@@ -202,7 +202,7 @@ body {
 	width: 100%;
 	/* display:flex;
 	justify-content: center; */
-	background-color: #8cffa0;
+	/* background-color: #8cffa0; */
 }
 
 .invitation-card,.host-card, .attending-card{
