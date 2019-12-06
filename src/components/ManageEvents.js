@@ -68,18 +68,18 @@ async function itemsList(eventId){
 
         const itemId = e.target.id
         const toBeAssignedTo = localStorage.getItem("user")
-
-        fetch(`http://localhost:3000/items/${itemId}/assigned`, {
-            method: "PATCH",
-            headers: {
-                "Content_Type": "application/json"
-            },
-            body: JSON.stringify({toBeAssignedTo})
-        })
-        .then(response => {
-            console.log(response)
-            return response.json();
-        })
+        console.log(toBeAssignedTo)
+        // fetch(`http://localhost:3000/items/${itemId}/assigned`, {
+        //     method: "PATCH",
+        //     headers: {
+        //         "Content_Type": "application/json"
+        //     },
+        //     body: JSON.stringify({toBeAssignedTo})
+        // })
+        // .then(response => {
+        //     console.log(response)
+        //     return response.json();
+        // })
         // .then(() => {
 
         // } )
