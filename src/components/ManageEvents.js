@@ -68,7 +68,7 @@ async function itemsList(eventId){
 
         const itemId = e.target.id
         const toBeAssignedTo = localStorage.getItem("user")
-        console.log(toBeAssignedTo)
+        console.log("assign to" + toBeAssignedTo)
         // fetch(`http://localhost:3000/items/${itemId}/assigned`, {
         //     method: "PATCH",
         //     headers: {
