@@ -6,7 +6,7 @@ describe('renderUsers', () => {
 
         const returnedUserCards = await underTest.renderUsers();
         expect(returnedUserCards).toBeDefined
-        console.log(returnedUserCards)
+        // console.log(returnedUserCards)
         // expect()
     })
 })

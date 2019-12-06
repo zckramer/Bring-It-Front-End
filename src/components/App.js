@@ -42,7 +42,7 @@ async function App (itemToRender) {
 
     // populate navbar with Invited and Hosted events
 
-    Deact.render(Invitations(testEvents), document.querySelector(".nav-bar"))
+    // Deact.render(Invitations(testEvents), document.querySelector(".nav-bar"))
 
 //    console.log(testEvents);
         // DEV -- EDITTING HOME PAGE
@@ -54,7 +54,7 @@ async function App (itemToRender) {
 
         // DEV --- USER LOGIN    
 
-    return Deact.render(await InvitationCard(), document.querySelector(".home-page-container") )  
+    return Deact.render(await Invitations(), document.querySelector(".home-page-container") )  
     }
 
 
