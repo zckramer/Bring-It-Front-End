@@ -7,6 +7,7 @@ const NavBar = require('../components/NavBar')
 const Invitations = require('../components/InvitationCard')
 const LogIn = require('../components/LogIn')
 const RenderForm = require('../components/EventForm')
+const IntroScreen = require('../components/IntroScreen')
  
 
 
@@ -20,8 +21,17 @@ async function App (itemToRender) {
 
     switch(itemToRender){
 
+        case "IntroScreen":
+                const IntroButton = Deact.render(await IntroScreen(), document.querySelector(".home-page-container") ) 
+                
+                const ButtonSelector = document.querySelector(".submit-button");
+                ButtonSelector.addEventListener("click", () => {App("LogIn")})
+                
+        break;
+
         case "LogIn":
             Deact.render(await LogIn(), document.querySelector(".home-page-container") ) 
+            
         break;
 
         case "HomePage":
@@ -34,8 +44,10 @@ async function App (itemToRender) {
 
         default:
             console.log("App Switch Failed");
+        
+            
     };
-
+    
   
     }
 
