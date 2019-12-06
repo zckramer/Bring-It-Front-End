@@ -1,7 +1,10 @@
 @import "EventForm.css";
+@import url('https://fonts.googleapis.com/css?family=Lato|Chewy&display=swap');
+
 
 body {
 	height: 100vh;
+	font-family: Lato;
 }
 
 .app {
@@ -26,7 +29,7 @@ body {
 	height: 100%;
 
 	grid-template-areas:
-		"logo head head head head note"
+		"head head head head head head"
 		"nav main main main main main"
 		"nav main main main main main "
 		"foot foot foot foot foot foot";
@@ -37,12 +40,15 @@ body {
 }
 
 .home-page__header {
+	position: relative;
 	grid-area: head;
 	display:flex;
 	width:100%;
-	/* border: 1px solid black; */
-	/* padding: 1px; */
-	background-color: #8ca0ff;
+	height: 100px;
+	background-color: #ffffff;
+	border-bottom:2px solid black ;
+	box-shadow: 4px 4px 10px darkgray;
+	font-family: Lato;
 }
 
 .home-page {
@@ -51,11 +57,12 @@ body {
 }
 
 .nav-bar {
+	
 	grid-area: nav;
 	margin: 0%;
 	height: 100%;
 	width:100%;
-	/* background-color: #ffa08c; */
+	background-color: #599e47;
 	display:flex;
 	flex-direction:column;
 }
@@ -81,18 +88,32 @@ body {
 .main-container {
 	width: 100%;
 	height: 100%;
+	display: flex;
 	grid-area: main;
+	justify-content: center;
+	align-content: center;
 
 	
 }
 .main-container-event {
+	padding: 3%;
 	width: 100%;
 	height: 100%;
 	display: grid;
-    grid-template-rows: 50% 50%;
+    grid-template-rows: 40% 40%;
     grid-template-columns: 20% 20% 20% 20% 20% ;
 	grid-template-areas: "my-event my-event host host host" 
 	"attendees attendees assignments assignments assignments";
+
+	margin: 1rem auto;
+    padding: 1rem;
+    /* box-shadow: 5px 5px 10px gray; */
+    border: 2px solid darkgray;
+    border-radius: 15px;
+    background-color: rgb(224, 224, 219);
+    background-image: url("../Images/subtle_white_mini_waves.png");
+    text-align: center;
+    font-family: Lato, 'Sans Serif';
 }
 
 /* .event-form__container{
@@ -103,18 +124,20 @@ body {
 
 .my-event {
 	grid-area: my-event;
-	width: 100%;
-	height: 100%;
+	width: 95%;
+	height: 95%;
+
+
 	/* border: 1px solid black; */
 	/* padding: 1px; */
 
-	background-color: #7a7a2c;
+	background-color: rgb(120, 226, 21);
 }
 
 .host {
 	grid-area: host;
-	width: 100%;
-	height: 100%;
+	width: 95%;
+	height: 95%;
 	/* border: 1px solid black; */
 	/* padding: 1px; */
 
@@ -123,18 +146,18 @@ body {
 
 .attendees {
 	grid-area: attendees;
-	width: 100%;
-	height: 100%;
+	width: 95%;
+	height: 95%;
 	/* border: 1px solid black; */
 	/* padding: 1px; */
-
+	display: flex;
 	background-color: #ffff64;
 }
 
 .assignments {
 	grid-area: assignments;
-	width: 100%;
-	height: 100%;
+	width: 95%;
+	height: 95%;
 	/* border: 1px solid black; */
 	/* padding: 1px; */
 
@@ -150,12 +173,27 @@ body {
 }
 
 .logo{
-	grid-area: logo;
-	height: 100%;
-	width:100%;
-	/* display:flex;
-	justify-content: center; */
-	background-color: #8cffa0;
+	height: 100px;
+	width: 300px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	
+}
+.new-event{
+	cursor: pointer;
+	width: 8rem;
+	height: 8rem;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.4rem;
+	color: whitesmoke;
+	border: 2px solid black;
+	border-radius: 100%;
+	background-image: radial-gradient(skyblue, skyblue, darkblue)
 }
 
 .notification{
@@ -201,3 +239,34 @@ body {
 	margin: 2px;
 } */
 
+.attendee__list-item{
+	display: flex;
+	flex-direction: column;
+	width: 100px;
+	background-color: darkgray;
+	margin: .1rem;
+}
+.attendees__list-item-image{
+	width: 100px;
+	height: 100px;
+	border-radius: 100%;
+}
+.attendees__list-item-name{
+	position: static;
+	text-align: center;
+	font-size: 1rem;
+	color: black;
+	left: 0;
+	right: 0;
+}
+.attendees__list{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 150px;
+
+	flex-direction: row;
+	flex-wrap: column wrap;
+	overflow-y: scroll;
+}

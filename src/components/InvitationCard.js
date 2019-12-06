@@ -27,14 +27,6 @@ function makePage(e) {
 
 }
 
-// function populatePage(pageMade) {
-
-//   document.querySelector('.my-event')
-
-// };
-
-// Deact.render(HomePage(), document.querySelector('.app'));
-
 async function Invitations(){
   Deact.render(await renderInvitations(), document.querySelector('.my-events-container'), );
   }
