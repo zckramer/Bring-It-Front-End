@@ -90,6 +90,8 @@ body {
 	height: 100%;
 	display: flex;
 	grid-area: main;
+	justify-content: center;
+	align-content: center;
 
 	
 }
