@@ -16,7 +16,6 @@ async function ManageEvent(eventId) {
         Deact.create("div", {class:"assignments"}, await itemsList(eventId) ),
         
 ]))}
-
 function eventDetails(event) {
 
     const myEventDetails = Deact.create("div", {class:"my-event__event-details"},[
@@ -26,9 +25,6 @@ function eventDetails(event) {
     ])
     return myEventDetails  
 }
-
-
-
 async function hostDetails(hostId){
     
     const response = await Http.getRequest(`http://localhost:3000/users/${hostId}`)
@@ -57,30 +53,20 @@ async function itemsList(eventId){
     return itemsContainer
 } 
 
-// function inviteesList(event) {
-    
-//     const invitees = Deact.create("ul", {class:"attendees__list"}, [
-//         getEventDetails(event)
-//     ])
-//     return invitees
-// }
-
 function inviteesList (event) {
     const attendeeArray = event.guestList.map(guest => {
         const guestName = guest.name
         const guestImage = guest.image
         console.log(guest)
-        return (Deact.create("li", {class:"attendee__list-item"}, [
+        return (Deact.create("div", {class:"attendee__list-item"}, [
             Deact.create("span", {class:"attendees__list-item-name"}, guestName),
-            Deact.create("span", {class:"attendees__list-item-name"}, guestImage)
+            Deact.create("img", {src: guestImage, class:"attendees__list-item-image"}, "")
         ]))
     })
     console.log(attendeeArray)
-            const invitees = Deact.create("ul", {class:"attendees__list"}, attendeeArray)
+            const invitees = Deact.create("section", {class:"attendees__list"}, attendeeArray)
             return invitees;
-
-        // Deact.render(invitees, document.querySelector('.attendees__list'))
-
+ 
 }
 
 module.exports = ManageEvent;
