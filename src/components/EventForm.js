@@ -80,8 +80,8 @@ async function RenderEventForm () {
 
                 // Needs to redirect to the New Event's page
                 document.querySelector('.main-container').innerHTML = "";
-                console.log(newEvent)
-                ManageEvents(newEvent);
+                // console.log(newEvent)
+                ManageEvent(newEvent);
 
             })
     }
