@@ -7,6 +7,7 @@ const NavBar = require('../components/NavBar')
 const Invitations = require('../components/InvitationCard')
 const LogIn = require('../components/LogIn')
 const RenderForm = require('../components/EventForm')
+const IntroScreen = require('../components/IntroScreen')
  
 
 
@@ -20,8 +21,17 @@ async function App (itemToRender) {
 
     switch(itemToRender){
 
+        case "IntroScreen":
+                const IntroButton = Deact.render(await IntroScreen(), document.querySelector(".home-page-container") ) 
+                
+                const ButtonSelector = document.querySelector(".submit-button");
+                ButtonSelector.addEventListener("click", () => {App("LogIn")})
+                
+        break;
+
         case "LogIn":
             Deact.render(await LogIn(), document.querySelector(".home-page-container") ) 
+            
         break;
 
         case "HomePage":
@@ -34,30 +44,10 @@ async function App (itemToRender) {
 
         default:
             console.log("App Switch Failed");
+        
+            
     };
-
-    // call log in to get user "_id":"5ddadb0a374676197cb2102a"
-
-    // query API for user Events
-
-    // populate navbar with Invited and Hosted events
-
-    // Deact.render(Invitations(testEvents), document.querySelector(".nav-bar"))
-
-//    console.log(testEvents);
-        // DEV -- EDITTING HOME PAGE
-        // return Deact.render( await HomePage(), document.querySelector(".home-page-container"))            
-
-        // return Deact.render(await NavBar(), document.querySelector(".home-page-container")   
-                
-        // )
-
-        // DEV --- USER LOGIN    
-
-    return Deact.render(await Invitations(), document.querySelector(".home-page-container") )  
     }
-
-
 
 
 module.exports = App;

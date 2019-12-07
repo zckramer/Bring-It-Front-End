@@ -4,6 +4,7 @@ const Http = require('../utils/Http')
 const Items = require('./ItemCard')
 const ManageEvent=require('./ManageEvent')
 
+
 async function RenderEventForm () {
 
     // Sets the user "Logged In" that's creating the Event
@@ -36,6 +37,16 @@ async function RenderEventForm () {
             itemsValues.push(item.value)
         })
         return itemsValues;    
+    }
+
+    function clearForm (){
+        document.querySelector('.main-container').innerHTML = "";
+    }
+    async function renderUsers (){
+        Deact.render(await LogIn(), document.querySelector(".home-page-container") )
+        Deact.create("section", {class:"main-container"}, [
+            await Users.renderUsers()
+        ])
     }
 
     function handleSubmit(e) {
@@ -98,6 +109,7 @@ async function RenderEventForm () {
                 Deact.create("section", {class:"input-buttons-container"}, [
                     Deact.create ("button", {type: "submit", class:"event-submit"}, "SUBMIT!"),
                     Deact.create ("button", {type: "reset", onclick: resetCheckboxes, class: "event-reset"}, "Clear"),
+                    Deact.create ("button", {onclick: clearForm }, "Go back")
                 ])
                 
             ])

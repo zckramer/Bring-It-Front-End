@@ -70,7 +70,7 @@ async function itemsList(eventId){
         const itemId = e.target.id
         const eventId = e.target.name
         const toBeAssignedTo = localStorage.getItem("user")
-        console.log("before fetch... to be assigned to = " + toBeAssignedTo)
+
         fetch(`http://localhost:3000/items/${itemId}/assigned`, {
             method: "PATCH",
             headers: {
@@ -88,6 +88,7 @@ async function itemsList(eventId){
             document.querySelector('"#' + `${userId}"`).innerHTML = "";
              async () => { Deact.render(await ManageEvent(eventId), document.querySelector(".assignments")) }
         } )
+
     }
 
     const itemsContainer = Deact.create("ul", {class:"items__items-details"}, ItemCards)
