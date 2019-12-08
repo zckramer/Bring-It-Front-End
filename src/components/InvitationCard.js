@@ -34,7 +34,7 @@ async function Invitations(){
  async function renderInvitations () {
   const userId = localStorage.getItem("user")
   const response = await Http.getRequest(`http://localhost:3000/users/${userId}/attending`)
-  console.log(response.user.eventsAttending)
+  // console.log(response.user.eventsAttending)
 
   const eventArray = response.user.eventsAttending.map(event => {
       return Deact.create("section", { class: `attending-card`, onclick:handleClickEvent, id: `${event._id}`},[Deact.create("h4", { class: `attending-title`, id: `${event._id}`},`${event.title}`)])})

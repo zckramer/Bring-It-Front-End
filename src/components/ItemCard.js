@@ -9,7 +9,7 @@ module.exports = {
             
         const itemsArray = response.items.map(item => {
             return (
-                Deact.create("span", {class:"item-label"}, [`${item.itemName}`, Deact.create("input", {type:"checkbox", class:"item-checkbox", name:"items", value: `${item._id}`}, "")])
+                Deact.create("span", {class:"item-label"},[`${item.itemName}`, Deact.create("input", {type:"checkbox", class:"item-checkbox", name:"items", value: `${item._id}`}, "")])
             )
         })
                 

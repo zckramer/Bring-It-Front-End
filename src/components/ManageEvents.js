@@ -2,10 +2,10 @@ const Deact = require("../libs/Deact")
 const Http = require("../utils/Http")
 
 async function ManageEvent(eventId) {
-    console.log(eventId);
+    // console.log(eventId);
     const response = await Http.getRequest(`http://localhost:3000/events/${eventId}/guestlist`)
     const event = response.event;
-    // console.log(event)
+    
 
 
     document.querySelector('.main-container').innerHTML = "";
@@ -39,7 +39,7 @@ async function hostDetails(hostId){
 
 async function itemsList(eventId){
     const response = await Http.getRequest(`http://localhost:3000/events/${eventId}/items`);
-    console.log(response.event.items)
+    // console.log(response.event.items)
     const itemsArray = response.event.items;
     
     const ItemCards = itemsArray.map(item => {
@@ -50,6 +50,7 @@ async function itemsList(eventId){
         //         ]))
 
         const userLoggedIn = localStorage.getItem("user")
+        console.log("userLoggedIn = " + userLoggedIn + "and item.itemName = " + item.assignedTo)
         if (userLoggedIn === item.assignedTo._id){
             return ( Deact.create("section", {class:"event-item-card"}, [
                 Deact.create("div", {class:"event-item-title"}, `${item.itemName}`), 
@@ -58,7 +59,7 @@ async function itemsList(eventId){
         } else {    
             return ( Deact.create("section", {class:"event-item-card"}, [
                 Deact.create("div", {class:"event-item-title"}, `${item.itemName}`), 
-                Deact.create("button", {type: "submit", onclick: handleSubmit, id:item._id}, "Bring It")  
+                Deact.create("button", {name: `${item.name}`, type: "submit", onclick: handleSubmit, id:item._id}, "Bring It")  
             ]))
         }
     })
@@ -67,22 +68,27 @@ async function itemsList(eventId){
         e.preventDefault();
 
         const itemId = e.target.id
+        const eventId = e.target.name
         const toBeAssignedTo = localStorage.getItem("user")
-        console.log("assign to" + toBeAssignedTo)
-        // fetch(`http://localhost:3000/items/${itemId}/assigned`, {
-        //     method: "PATCH",
-        //     headers: {
-        //         "Content_Type": "application/json"
-        //     },
-        //     body: JSON.stringify({toBeAssignedTo})
-        // })
-        // .then(response => {
-        //     console.log(response)
-        //     return response.json();
-        // })
-        // .then(() => {
 
-        // } )
+        fetch(`http://localhost:3000/items/${itemId}/assigned`, {
+            method: "PATCH",
+            headers: {
+                "Content-type": "application/json"
+                
+            },
+            body: JSON.stringify({toBeAssignedTo})
+        })
+        .then(response => {
+            console.log("response to be assigned to = " + response)
+            console.log(localStorage.getItem("user"))
+            return response.json();
+        })
+        .then(() => {
+            // document.querySelector('"#' + `${userId}"`).innerHTML = "";
+            //  async () => { Deact.render(await ManageEvent(eventId), document.querySelector(".assignments")) }
+        } )
+
     }
 
     const itemsContainer = Deact.create("ul", {class:"items__items-details"}, ItemCards)
@@ -94,13 +100,13 @@ function inviteesList (event) {
     const attendeeArray = event.guestList.map(guest => {
         const guestName = guest.name
         const guestImage = guest.image
-        console.log(guest)
+        // console.log(guest)
         return (Deact.create("div", {class:"attendee__list-item"}, [
             Deact.create("span", {class:"attendees__list-item-name"}, guestName),
             Deact.create("img", {src: guestImage, class:"attendees__list-item-image"}, "")
         ]))
     })
-    console.log(attendeeArray)
+    // console.log(attendeeArray)
             const invitees = Deact.create("section", {class:"attendees__list"}, attendeeArray)
             return invitees;
  

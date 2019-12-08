@@ -22,6 +22,7 @@ async function App (itemToRender) {
     switch(itemToRender){
 
         case "IntroScreen":
+            console.log("IntroScreen case!")
                 const IntroButton = Deact.render(await IntroScreen(), document.querySelector(".home-page-container") ) 
                 
                 const ButtonSelector = document.querySelector(".submit-button");
@@ -30,11 +31,15 @@ async function App (itemToRender) {
         break;
 
         case "LogIn":
+                console.log("LogIn case!")
+
             Deact.render(await LogIn(), document.querySelector(".home-page-container") ) 
             
         break;
 
         case "HomePage":
+                console.log("HomePage case!")
+
             Deact.render(await HomePage(), document.querySelector(".home-page-container"))            
         break;
 
@@ -47,8 +52,6 @@ async function App (itemToRender) {
         
             
     };
-    
-  
     }
 
 

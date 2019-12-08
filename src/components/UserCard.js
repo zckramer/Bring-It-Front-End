@@ -6,8 +6,8 @@ const HomePage = require('./HomePage')
 async function handleClickEvent (event) {
 
   // document.querySelector('.app')
-  console.log(event.target.attributes.value);
-  console.log(event.target.attributes.name);
+  // console.log(event.target.attributes.value);
+  // console.log(event.target.attributes.name);
 
 
   document.querySelector('.app').innerHTML = "";
