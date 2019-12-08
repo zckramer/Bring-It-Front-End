@@ -2,6 +2,7 @@ const Deact = require('../libs/Deact')
 const Http = require('../utils/Http')
 const UserCard = require('./UserCard')
 const Invitations = require('./InvitationCard')
+const renderLogOutButton = require('./LogOutButton')
 
 module.exports = {
     
@@ -16,8 +17,10 @@ module.exports = {
 
                     localStorage.setItem("user", userId)
                     console.log(`Now logged in as ${localStorage.getItem("user")}`)
-
-                   await Invitations();
+                    document.querySelector(".new-event").classList.add("show")
+                    document.querySelector(".main-container").innerHTML = "";
+                    renderLogOutButton();
+                    await Invitations();
                 }
                     
                      

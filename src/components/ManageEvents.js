@@ -52,13 +52,11 @@ async function itemsList(eventId){
         const userLoggedIn = localStorage.getItem("user")
         console.log("userLoggedIn = " + userLoggedIn + "and item.itemName = " + item.assignedTo)
         if (userLoggedIn === item.assignedTo._id){
-            console.log("item is assigned to: " + item.assignedTo)
             return ( Deact.create("section", {class:"event-item-card"}, [
                 Deact.create("div", {class:"event-item-title"}, `${item.itemName}`), 
                 Deact.create("div", {class:"event-item-assigned"}, `You're bringing this!`)  
             ]))
         } else {    
-            console.log("item is assigned to: " + item.assignedTo)
             return ( Deact.create("section", {class:"event-item-card"}, [
                 Deact.create("div", {class:"event-item-title"}, `${item.itemName}`), 
                 Deact.create("button", {name: `${item.name}`, type: "submit", onclick: handleSubmit, id:item._id}, "Bring It")  
