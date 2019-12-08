@@ -31,20 +31,21 @@ body {
 	grid-template-areas:
 		"head head head head head head"
 		"nav main main main main main"
-		"nav main main main main main "
-		"foot foot foot foot foot foot";
+		"nav main main main main main ";
+		/* "foot foot foot foot foot foot"; */
 
-	grid-template-rows: 10% 40% 40% 10%;
+	/* grid-template-rows: 10% 40% 40% 10%; */
+	grid-template-rows: 15% 42.5% 42.5%;
 
 	grid-template-columns: 10% 20% 20% 20% 20% 10%;
 }
 
 .home-page__header {
-	position: relative;
+	/* position: relative; */
 	grid-area: head;
 	display:flex;
-	width:100%;
-	height: 100px;
+/* 	width:100%; */
+	/* height: 20%; */
 	/* background-color: #ffffff; */
 	border-bottom:2px solid black ;
 	box-shadow: 4px 4px 10px darkgray;
@@ -63,10 +64,22 @@ body {
 	height: 100%;
 	width:100%;
 	background-color: whitesmoke;
-	display:flex;
-	flex-direction:column;
+
 }
 
+.my-events-container{
+	width:100%;
+
+}
+
+.attending-card-container{
+
+width:90%;
+display:flex;
+flex-direction: column;
+align-content: center;
+
+}
 .events__hosting {
     display: flex;
 	flex-direction: column;
@@ -90,27 +103,27 @@ body {
 	height: 100%;
 	display: flex;
 	grid-area: main;
-	justify-content: center;
-	align-content: center;
+	justify-self: center;
+	align-self: center;
 
 	
 }
 .main-container-event {
-	padding: 3%;
+	/* padding:2px;  */
 	width: 100%;
 	height: 100%;
 	display: grid;
-    grid-template-rows: 40% 40%;
+    grid-template-rows: 50% 50%;
     grid-template-columns: 20% 20% 20% 20% 20% ;
 	grid-template-areas: "my-event my-event host host host" 
 	"attendees attendees assignments assignments assignments";
 
-	margin: 1rem auto;
-    padding: 1rem;
+	/* margin: 1rem auto; */
+    /* padding: 1rem; */
     /* box-shadow: 5px 5px 10px gray; */
     border: 2px solid darkgray;
-    border-radius: 15px;
-    /* background-color: rgb(224, 224, 219); */
+    /* border-radius: 15px; */
+
     background-image: url("../Images/subtle_white_mini_waves.png");
     text-align: center;
     font-family: Lato, 'Sans Serif';
@@ -124,21 +137,39 @@ body {
 
 .my-event {
 	grid-area: my-event;
+	justify-self: center;
+	align-self: center;
 	width: 95%;
 	height: 95%;
 
-
-	/* border: 1px solid black; */
+	/* box-shadow: 10px 5px 5px black; */
+	border: 1px solid black;
 	/* padding: 1px; */
 
 	background-color: whitesmoke;
 }
 
+.my-event,.host,.attendees,.assignments{
+	display:flex;
+	flex-direction:column;
+	justify-content: center;
+	align-items:center ;
+}
+
+.my-event__event-details, .host__host-details{
+
+	width: 80%;
+	height: 80%;
+	background-color: red;
+}
+
 .host {
 	grid-area: host;
-	width: 95%;
+	justify-self: center;
+	align-self: center;
+	width: 98%;
 	height: 95%;
-	/* border: 1px solid black; */
+	border: 1px solid black;
 	/* padding: 1px; */
 
 	background-color: whitesmoke;
@@ -146,9 +177,11 @@ body {
 
 .attendees {
 	grid-area: attendees;
+	justify-self: center;
+	align-self: center;
 	width: 95%;
 	height: 95%;
-	/* border: 1px solid black; */
+	border: 1px solid black;
 	/* padding: 1px; */
 	display: flex;
 	background-color: whitesmoke;
@@ -156,9 +189,11 @@ body {
 
 .assignments {
 	grid-area: assignments;
-	width: 95%;
+	justify-self: center;
+	align-self: center;
+	width: 98%;
 	height: 95%;
-	/* border: 1px solid black; */
+	border: 1px solid black;
 	/* padding: 1px; */
 
 	 background-color: whitesmoke; 
@@ -209,14 +244,18 @@ body {
 	width: 100%;
 	/* display: flex;
 	flex-direction:column;
-	align-content: space-around; */
+	align-content: center;  */
 	text-align:center;
 	padding:5px;
 	/* position: relative; */
 	/* border: 5px solid #666; */
 	box-sizing:border-box;
+
 	box-shadow: inset -5px -5px 5px #888;
-	margin-bottom: 5px;
+	margin-top: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+
 	border: 2px solid #666;
 }
 
