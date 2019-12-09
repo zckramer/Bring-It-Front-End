@@ -23,7 +23,7 @@ async function App (itemToRender) {
 
         case "IntroScreen":
             console.log("IntroScreen case!")
-                const IntroButton = Deact.render(await IntroScreen(), document.querySelector(".home-page-container") ) 
+                Deact.render(await IntroScreen(), document.querySelector(".home-page-container") ) 
                 
                 const ButtonSelector = document.querySelector(".submit-button");
                 ButtonSelector.addEventListener("click", () => {App("LogIn")})
