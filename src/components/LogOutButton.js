@@ -5,7 +5,7 @@ const Users = require("./Users")
 
 function renderLogOutButton() {
     console.log("running renderLogOutButton...")
-    const button = Deact.create("button", {class:"log-out-button", onclick: logOut}, "Log Out");
+    const button = Deact.create("div", {class:"log-out-button", onclick: logOut}, "Log Out");
     return Deact.render(button, document.querySelector(".home-page__header"))
 
 }

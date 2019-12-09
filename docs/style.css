@@ -74,7 +74,7 @@ body {
 	/* position: relative; */
 	grid-area: nav;
 	margin-top: 10%;
-	height: 100%;
+	height: 70%;
 	width:100%;
 	/* min-width: 10rem; */
 	background-color: whitesmoke;
@@ -84,15 +84,44 @@ body {
 
 }
 
-.my-events-container{
-	width:100%;
-
-
+.log-in-container {
+	padding: 10%;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-evenly;
+}
+.log-in-user-card__name {
+	text-align: center;
+	background-color: #330099;
+	width: 100%;
+	color: white;
+	font-size: 1rem;
+}
+.log-in-user-card {
+	cursor: pointer;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	/* background-color: #33009956; */
+	width: 7rem;
+	height: 9rem;
+	color: white;
+	border-bottom: 2px solid #33009900;
+	transition-duration: .1s;
+}
+.log-in-user-card:hover {
+	border-bottom: 2px solid #330099;
+	transition-duration: .3s;
+	
+}
+.log-in-user-card__avatar {
+	width: 4.5rem;
+	height: 4.5rem;
+	border-radius: 100%;
 }
 
 .attending-card-container{
-
-width:90%;
+width:100%;
 display:flex;
 flex-direction: column;
 align-content: center;
@@ -181,7 +210,8 @@ align-content: center;
 
 	width: 80%;
 	height: 80%;
-	background-color: red;
+	background-color: red; 
+	font-size: 1.5em;
 }
 
 .host {
@@ -203,10 +233,15 @@ align-content: center;
 	width: 95%;
 	height: 95%;
 	border: 1px solid black;
-	/* padding: 1px; */
 	display: flex;
 	background-color: whitesmoke;
+	
 }
+
+.attendees__list{
+	height: 90%;
+
+  }
 
 .assignments {
 	grid-area: assignments;
@@ -237,8 +272,14 @@ align-content: center;
 	left: 0;
 	
 }
-.new-event{
+
+.log-out-button  {
+	display: flex;
+}
+.new-event {
 	display: none;
+}
+.new-event, .log-out-button{
 	position: relative;
 	cursor: pointer;
 	height: 80%;
@@ -248,20 +289,22 @@ align-content: center;
 	font-size: 1.2rem;
 	padding: .2rem;
 	color: #330099;
-	/* border: 2px solid black; */
+	background-color: #6699ff;
+	padding: 0 2rem;
 	border-radius: 10px;
 	z-index: 3;
+	transition-duration: .5s;
 }
 
 .new-event.show {
 	display: flex;
-	background-color: #6699ff;
-	transition-duration: .5s;
 }
 
-.new-event.show:hover {
-	background-color: white;
+.new-event.show:hover, .log-out-button:hover {
+	background-color: rgba(255, 255, 255, 0);
 	transition-duration: .5s;
+	/* font-size: 120%; */
+	transform: scale(1.4);
 	color: #330099;
 }
 
@@ -331,14 +374,15 @@ align-content: center;
 
 .attendee__list-item{
 	display: flex;
-	flex-direction: column;
-	width: 100px;
+	flex-direction: row;
+	flex-flow: row-wrap ;
+	width: 300px; 
 	background-color: darkgray;
 	margin: .1rem;
 }
 .attendees__list-item-image{
-	width: 100px;
-	height: 100px;
+	height:200px;
+	width: auto; 
 	border-radius: 100%;
 }
 .attendees__list-item-name{
@@ -353,10 +397,9 @@ align-content: center;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 100%;
-	height: 150px;
+	max-width: 600 px;
 
 	flex-direction: row;
-	flex-wrap: column wrap;
-	overflow-y: scroll;
+	flex-wrap: wrap;
+	overflow-x: scroll;
 }
