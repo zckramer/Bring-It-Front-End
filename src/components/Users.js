@@ -18,6 +18,7 @@ module.exports = {
                     localStorage.setItem("user", userId)
                     console.log(`Now logged in as ${localStorage.getItem("user")}`)
                     document.querySelector(".new-event").classList.add("show")
+                    document.querySelector(".nav-bar").classList.add("show")
                     document.querySelector(".main-container").innerHTML = "";
                     renderLogOutButton();
                     await Invitations();
