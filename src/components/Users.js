@@ -2,6 +2,7 @@ const Deact = require('../libs/Deact')
 const Http = require('../utils/Http')
 const UserCard = require('./UserCard')
 const Invitations = require('./InvitationCard')
+const renderLogOutButton = require('./LogOutButton')
 
 module.exports = {
     
@@ -16,8 +17,11 @@ module.exports = {
 
                     localStorage.setItem("user", userId)
                     console.log(`Now logged in as ${localStorage.getItem("user")}`)
-
-                   await Invitations();
+                    document.querySelector(".new-event").classList.add("show")
+                    document.querySelector(".nav-bar").classList.add("show")
+                    document.querySelector(".main-container").innerHTML = "";
+                    renderLogOutButton();
+                    await Invitations();
                 }
                     
                      
@@ -25,16 +29,16 @@ module.exports = {
              const userArray = response.users.map(user => {
                    
                 
-                return Deact.create("section", { class: `user-card`, onclick: setLogIn, name: user.name, id: user._id,}, [
-                    Deact.create("h3", { class: `user-card__name`, name: user.name, id: user._id }, user.name),
+                return Deact.create("section", { class: `log-in-user-card`, onclick: setLogIn, name: user.name, id: user._id,}, [
+                    Deact.create("h3", { class: `log-in-user-card__name`, name: user.name, id: user._id }, user.name),
                     Deact.create(
                       "img",
-                      { class: `user-card__avatar`, name: user.name, src: user.image, id: user._id },
+                      { class: `log-in-user-card__avatar`, name: user.name, src: user.image, id: user._id },
                       ""
                     )
                   ])
              })
-             return Deact.create('div', {}, userArray)
+             return Deact.create('div', {class : "log-in-container"}, userArray)
     },
     
     async renderFriendsCheckbox() {

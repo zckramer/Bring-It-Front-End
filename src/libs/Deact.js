@@ -1,6 +1,8 @@
 module.exports = {
     render(child, parent) {
-      parent.append(child);
+      if (child) {
+        parent.append(child);
+      }
     },
     create(element, attributes = {}, content) {
       const createdElement = document.createElement(element);
