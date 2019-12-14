@@ -1,0 +1,25 @@
+{
+  "name": "bring-it-front-end",
+  "version": "1.0.0",
+  "description": "The Future of Party Planning",
+  "main": "index.js",
+  "dependencies": {
+    "jest": "^24.9.0",
+    "node": "^13.1.0",
+    "nodemon": "^1.19.4",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "webpack-dev-server --mode development --content-base docs/ --open --hot",
+    "test": "jest --color --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WeCanCodeIT/Bring-It-Front-End"
+  },
+  "author": "",
+  "license": "ISC"
+}

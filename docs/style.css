@@ -1,0 +1,446 @@
+@import "EventForm.css";
+@import url('https://fonts.googleapis.com/css?family=Lato|Chewy&display=swap');
+
+
+body {
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	width: 100vw;
+	font-family: Lato;
+	background-image: url("./memphis-colorful.png");
+	font-size: 1vw;
+
+}
+
+.app {
+	display: flex;
+	width: 100%;
+	height: 100%;
+
+} 
+
+/* header {
+	width: 100%;
+} */
+
+.user-card__avatar{
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+}
+
+.home-page-container {
+	display: grid;
+	width: 100%;
+	height: 100%;
+
+	grid-template-areas:
+
+		"head head head head head"
+		"nav main main main main"
+		"nav main main main main"
+		"foot foot foot foot foot";
+
+	/* grid-template-rows: 10% 40% 40% 10%; */
+	grid-template-rows: 15% 42.5% 42.5%;
+
+	grid-template-columns: 20% 20% 20% 20% 20%;
+}
+
+.home-page__header {
+	/* position: relative; */
+	grid-area: head;
+	display:flex;
+
+	justify-content: space-evenly;
+	width:100%;
+	height: 100%;
+	background-color: whitesmoke;
+
+	box-shadow: 4px 4px 10px darkgray;
+	font-family: Lato;
+	transition-duration: 1s;
+}
+
+.home-page {
+	width: 100%;
+	height: 100%;
+}
+
+.nav-bar {
+	display: none;
+	flex-direction:column;
+	/* position: relative; */
+	grid-area: nav;
+	margin-top: 10%;
+	height: 70%;
+	width:100%;
+	/* min-width: 10rem; */
+	background-color: whitesmoke;
+
+	box-shadow: 4px 4px 10px darkgray;
+}
+.nav-bar.show {
+	display: flex;
+}
+
+.log-in-container {
+	
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: 5% auto;
+	width: 50%;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-evenly;
+}
+.log-in-user-card__name {
+	text-align: center;
+	background-color: #330099;
+	width: 100%;
+	color: white;
+	font-size: 1rem;
+}
+.log-in-user-card {
+	cursor: pointer;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	/* background-color: #33009956; */
+	width: 7rem;
+	height: 9rem;
+	color: white;
+	border-bottom: 2px solid #33009900;
+	transition-duration: .1s;
+}
+.log-in-user-card:hover {
+	border-bottom: 2px solid #330099;
+	transition-duration: .3s;
+	
+}
+.log-in-user-card__avatar {
+	width: 4.5rem;
+	height: 4.5rem;
+	border-radius: 100%;
+}
+
+.attending-card-container{
+width:100%;
+display:flex;
+flex-direction: column;
+align-content: center;
+
+}
+.events__hosting {
+    display: flex;
+	flex-direction: column;
+	width: 100%;
+
+}
+
+.party-card {
+    /* Use Grid instead of Flex */
+    display: flex;
+    justify-content: space-evenly;
+	width: 100%;
+	height: 4rem;
+	border: 2px black solid;
+	padding: 1rem;
+
+}
+
+.main-container {
+	width: 97%;
+	height: 87%;
+	display: flex;
+	grid-area: main;
+	justify-content: center;
+	align-content: center;	
+}
+.button-container {
+	position: absolute;
+	right: 45%;
+	top: 50%;
+}
+.submit-button {
+	color: #ffffff;
+	background-color: #6699ff;
+	padding: 0 2rem;
+	border-radius: 10px;
+	z-index: 3;
+}
+.main-container-event {
+	/* padding:2px;  */
+	width: 100%;
+	height: 100%;
+	display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 20% 20% 20% 20% 20% ;
+	grid-template-areas: "my-event my-event host host host" 
+	"attendees attendees assignments assignments assignments";
+    text-align: center;
+    font-family: Lato, 'Sans Serif';
+}
+
+.event-item-card {
+	display: flex;
+	flex-flow: column wrap;
+	margin: 5%;
+	height: auto;
+	width: 30%;
+	background-color: #6699ff6c;
+}
+.event-item-card > button {
+	background-color: whitesmoke;
+	cursor: pointer;
+	border-radius: 10px;
+}
+
+.event-item-title {
+	margin: 5%;
+	font-size: 1.2rem;
+}
+
+.my-event {
+	grid-area: my-event;
+	justify-self: center;
+	align-self: center;
+	width: 95%;
+	height: 95%;
+
+	/* box-shadow: 10px 5px 5px black; */
+	box-shadow: 4px 4px 10px darkgray;
+	/* padding: 1px; */
+
+	background-color: whitesmoke;
+}
+
+.my-event,.host,.attendees,.assignments{
+	display:flex;
+	flex-direction:column;
+	justify-content: center;
+	align-items:center ;
+}
+
+.my-event__event-details, .host__host-details{
+
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-flow: column wrap;
+	align-content: center;
+	/* background-color: red;  */
+	font-size: 1.5em;
+}
+.host::before{
+	content: "Hosted By";
+	background-color: #330099;
+	color: white;
+	width: 100%;
+}
+
+.host {
+	list-style: none;
+	grid-area: host;
+	justify-self: center;
+	align-self: center;
+	width: 98%;
+	height: 95%;
+	box-shadow: 4px 4px 10px darkgray;
+	/* padding: 1px; */
+
+	background-color: whitesmoke;
+}
+
+.attendees {
+	grid-area: attendees;
+	justify-self: center;
+	align-self: center;
+	width: 95%;
+	height: 95%;
+	box-shadow: 4px 4px 10px darkgray;
+	display: flex;
+	background-color: whitesmoke;
+	
+}
+
+
+.assignments {
+	grid-area: assignments;
+	justify-self: center;
+	align-self: center;
+	width: 98%;
+	height: 90%;
+	box-shadow: 4px 4px 10px darkgray;
+	/* padding: 1px; */
+	 background-color: whitesmoke; 
+	 overflow-y: scroll;
+}
+
+.footer {
+	grid-area: foot;
+	border: 1px solid black;
+	/* padding: 1px; */
+
+	 background-color: #8cffa0; 
+}
+
+.logo{
+	height: 100%;
+	width: auto;
+	position: relative;
+	top: 0;
+	right: 0;
+	left: 0;
+	
+}
+
+.log-out-button  {
+	display: flex;
+}
+.new-event {
+	display: none;
+}
+.new-event, .log-out-button{
+	position: relative;
+	cursor: pointer;
+	height: 80%;
+	margin: auto;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.2rem;
+	padding: .2rem;
+	color: #ffffff;
+	background-color: #6699ff;
+	padding: 0 2rem;
+	border-radius: 10px;
+	z-index: 3;
+	transition-duration: .5s;
+}
+
+.new-event.show {
+	display: flex;
+}
+
+.new-event.show:hover, .log-out-button:hover {
+	background-color: rgba(255, 255, 255, 0);
+	transition-duration: .5s;
+	/* font-size: 120%; */
+	transform: scale(1.4);
+	color: #330099;
+}
+
+.notification{
+	grid-area: note;
+	height: 100%;
+	width: 100%;
+	/* display:flex;
+	justify-content: center; */
+	/* background-color: #8cffa0; */
+}
+
+
+.invitation-card, .host-card, .attending-card{
+	cursor: pointer;
+	width: 80%;
+	text-align:center;
+	padding: 0;
+	box-sizing:border-box;
+
+	box-shadow: inset -5px -5px 5px #888;
+
+	margin: 5px auto;
+
+	border: 2px solid #666;
+	border-radius: 10px;
+	transition-duration: .2s;
+	font-size: 100%;
+}
+.attending-card:hover {
+	color: white;
+	background-color: #888;
+	box-shadow: none;
+	transition-duration: .4s;
+}
+.attending-card-container::before{
+	text-align: center;
+	position: relative;
+	content: "Attending";
+	color: white;
+	background-color: #330099;
+	font-weight: bold;
+	font-size: 1.2rem;
+	width: 100%;
+	vertical-align: 50%;
+}
+.attending-card-container{
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-content: center;
+
+}
+
+.host-card{
+	background-image: url("./star.jpeg");
+	background-size:100% 100%;
+    background-repeat: no-repeat;
+	background-position: center;
+}
+
+.host__image{
+	width: 15%;
+	height: auto;
+	border-radius: 15%;
+}
+
+
+.attendee__list-item{
+	display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+    justify-content: center;
+    width: 40%;
+    margin: .1rem;
+}
+.attendees__list-item-image{
+	height: 80px;
+	width: 80px;
+    border-radius: 100%;
+}
+.attendees__list-item-name{
+	position: static;
+	text-align: center;
+	font-size: 1rem;
+	color: black;
+	left: 0;
+	right: 0;
+}
+.attendees__list{
+	height: 90%;
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+	max-width: 600 px;
+
+	flex-direction: row;
+	flex-wrap: wrap;
+	overflow-x: scroll;
+}
+.attendees::before {
+	background-color: #330099;
+	color: white;
+	width: 100%;
+	position: relative;
+	top: 0;
+	content: "Attendees";
+}
+.items__items-details {
+	width: 80%;
+	height: 100%;
+	display: flex;
+	flex-flow: row wrap;
+}
